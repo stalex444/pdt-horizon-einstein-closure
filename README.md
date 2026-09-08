@@ -95,9 +95,12 @@ The same compared theorem carries the exact response determinant
 
 ## What is proved and what is assumed
 
-The Lean kernel proves every displayed implication and equality.  The source
-and comparison modules contain no `sorry` or `admit`; the only reported axioms
-are Mathlib's standard `propext`, `Classical.choice`, and `Quot.sound`.
+The Lean kernel proves every displayed implication and equality.  The
+substantive source modules and `Solution.lean` contain no `sorry` or `admit`;
+`Challenge.lean` contains exactly five deliberate placeholders, one for each
+theorem checked by Comparator.  The only axioms reported for the proved
+declarations are Mathlib's standard `propext`, `Classical.choice`, and
+`Quot.sound`.
 
 Two physics premises remain explicit in the theorem statement:
 
