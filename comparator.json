@@ -1,0 +1,18 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "HorizonEinsteinClosure.horizonEinsteinClosure",
+    "HorizonEinsteinClosure.kmsBoundarySelectsOpticalFlow",
+    "HorizonEinsteinClosure.quarticNullCongruenceRaychaudhuri",
+    "HorizonEinsteinClosure.nullConeRigidity4",
+    "HorizonEinsteinClosure.nullClausiusForcesLocalEinsteinShape"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": true
+}

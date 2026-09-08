@@ -1,0 +1,6 @@
+/.lake/
+__pycache__/
+*.pyc
+/gwtc5-data/
+/gwtc5-cache/
+*.part

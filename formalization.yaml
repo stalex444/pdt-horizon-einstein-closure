@@ -1,0 +1,316 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: v0.4
+
+project:
+  name: From a quartic KMS horizon line to local Einstein closure
+  description: >-
+    Five compared declarations formalize one conditional horizon-to-Einstein
+    chain. Exchange symmetry, unit normalization, and a quartic 1/Q KMS/core
+    eigenweight classify an arbitrary two-channel boundary response and force
+    its complete affine optical flow up to orientation. The flow is realized
+    as the transverse Jacobi map of explicit affine null geodesics, satisfies
+    the twist-free vacuum Raychaudhuri equation, and has boost-weighted shear
+    flux exactly equal to its missing endpoint area. The horizon constraint
+    fixes the corresponding modular-energy update. A constructive
+    four-dimensional null-cone rigidity theorem then converts the local null
+    Clausius contraction into the Einstein-tensor equation. The integrated
+    capstone retains the complete rho-Q response determinant with exponent
+    224 and the irrational independence of the two modular clocks. The
+    physical placement of the quartic KMS line and the local Clausius
+    contraction are explicit hypotheses rather than claimed consequences of
+    the finite algebra.
+  authors:
+    - Stephanie Alexander
+  license: MIT
+  responsible_maintainers:
+    - Stephanie Alexander
+
+repository:
+  role: substantive-development
+
+classification:
+  arxiv:
+    - math-ph
+    - gr-qc
+  msc2020:
+    - "83C05"
+    - "83C47"
+    - "81R15"
+
+sources:
+  - title: "Thermodynamics of Spacetime: The Einstein Equation of State"
+    authors:
+      - Ted Jacobson
+    id: DOI:10.1103/PhysRevLett.75.1260
+    type: article
+    location: https://arxiv.org/abs/gr-qc/9504004
+    relationship: formalizes
+    author_endorsement: not-contacted
+    note: >-
+      Source for the local horizon Clausius argument and the null-contracted
+      Ricci-versus-stress relation. The compared null-cone theorem formalizes
+      the pointwise algebraic step from that contraction to the Einstein
+      tensor. This repository assumes the local Clausius contraction and does
+      not claim to re-formalize Jacobson's quantum-field-theoretic premises.
+  - title: Gravitational algebras and the generalized second law
+    authors:
+      - Thomas Faulkner
+      - Antony J. Speranza
+    type: article
+    location: https://arxiv.org/abs/2405.00847
+    relationship: adapts
+    author_endorsement: not-contacted
+    note: >-
+      Source for the modern horizon-cut crossed-product setting, the
+      one-sided modular-Hamiltonian/area relation, and the quadratic shear
+      contribution to gravitational null energy. The formalization adapts
+      those structures to an explicit finite optical flow. The source does
+      not select the quartic number Q or the PDT boundary placement.
+  - title: Gravity and the Crossed Product
+    authors:
+      - Edward Witten
+    type: article
+    location: https://arxiv.org/abs/2112.12828
+    relationship: background
+    author_endorsement: not-contacted
+    note: >-
+      Background for the modular crossed product, the gravitational
+      type-II algebra, its trace, and generalized-entropy interpretation.
+      No claim is made that this source contains the finite quartic model.
+  - title: PDT horizon-to-Einstein closure proof map
+    authors:
+      - Stephanie Alexander
+    type: research note
+    location: PROOF_MAP.md
+    relationship: formalizes
+    author_endorsement: participated
+    note: >-
+      Gives the exact theorem dependency table, separates kernel implications
+      from physical premises, and states the falsifiers for the two placement
+      assumptions. This is a source-to-code record and makes no independent
+      literature-priority claim.
+  - title: The Perron optical flow
+    authors:
+      - Stephanie Alexander
+    type: research note
+    location: PERRON_OPTICAL_RAYCHAUDHURI.md
+    relationship: formalizes
+    author_endorsement: participated
+    note: >-
+      States the explicit affine null congruence, its Jacobi map, optical
+      tensors, Raychaudhuri equation, and horizon energy-area balance.
+  - title: KMS selection of the horizon shear
+    authors:
+      - Stephanie Alexander
+    type: research note
+    location: KMS_OPTICAL_BOUNDARY_SELECTION.md
+    relationship: formalizes
+    author_endorsement: participated
+    note: >-
+      States the response-classification problem and the unique optical flow
+      up to orientation, conditional on the displayed quartic KMS placement.
+  - title: From the local Clausius relation to the Einstein tensor
+    authors:
+      - Stephanie Alexander
+    type: research note
+    location: LOCAL_EINSTEIN_CLOSURE.md
+    relationship: formalizes
+    author_endorsement: participated
+    note: >-
+      States the constructive four-dimensional null-cone rigidity result and
+      its application to the local Einstein-tensor equation.
+
+related_formalizations:
+  - id: PALOMAR-2026-08-19-000007
+    relationship: builds-on
+    note: >-
+      Registered PDT Lean core containing the cubic/quartic kinematic setting.
+      The present entry does not resubmit those registered declarations.
+  - id: PALOMAR-2026-08-31-000004
+    relationship: builds-on
+    note: >-
+      Registered degree-two through degree-four Mahler-measure minima,
+      including the distinguished cubic and quartic polynomials.
+  - id: PALOMAR-2026-09-01-000005
+    relationship: builds-on
+    note: >-
+      Registered degree-twelve compositum of rho and Q, including its exact
+      algebraic-unit and conjugate data.
+  - id: PALOMAR-2026-09-01-000012
+    relationship: builds-on
+    note: >-
+      Registered golden-family boundary containing the cubic Pisot and
+      quartic non-Pisot classification used as PDT context.
+  - id: PALOMAR-2026-09-02-000014
+    relationship: builds-on
+    note: >-
+      Registered trace-form tensor-product results and the signatures of the
+      cubic, quartic, and compositum fields.
+  - id: PALOMAR-2026-08-19-000006
+    relationship: other
+    note: >-
+      Registered Padovan time/chirality result. It is adjacent PDT context but
+      is not a hypothesis of the compared gravity declarations.
+  - id: https://github.com/stalex444/gravity-screening-mechanism/tree/4ad8be8c95f3170d77e4675294df79a5d53a976b
+    relationship: builds-on
+    note: >-
+      Pinned development repository from which the complete transitive Lean
+      dependency closure was extracted. This repository adds the integrated
+      horizon-to-Einstein capstone and a new five-result comparison surface.
+
+status:
+  scope: >-
+    The compared declarations prove a conditional mathematical bridge: static
+    quartic KMS boundary data classify a complete affine null-screen history;
+    the history obeys exact Raychaudhuri focusing and modular area balance;
+    and the local null Clausius contraction forces the Einstein-tensor shape
+    with the displayed rho-Q coupling. The integrated theorem explicitly
+    includes the exponent-224 determinant and the irrational modular-clock
+    relation. It does not prove that a physical interacting horizon carries
+    the proposed 1/Q line, derive the Clausius premise from quantum fields,
+    construct a global nonlinear spacetime, prove the differential Bianchi
+    identity, or validate the numerical coupling against experiment.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+  main_results:
+    - declaration: HorizonEinsteinClosure.horizonEinsteinClosure
+      file: Solution.lean
+      sorry_count: 0
+      axioms: [propext, Classical.choice, Quot.sound]
+      comparator_config: comparator.json
+      literature_dependencies:
+        - statement: A local horizon Clausius relation yields a null-contracted Ricci-versus-stress relation.
+          source: "Thermodynamics of Spacetime: The Einstein Equation of State"
+        - statement: Horizon gravitational null energy contains a quadratic shear term and horizon-cut area is related to a one-sided modular Hamiltonian.
+          source: Gravitational algebras and the generalized second law
+    - declaration: HorizonEinsteinClosure.kmsBoundarySelectsOpticalFlow
+      file: Solution.lean
+      sorry_count: 0
+      axioms: [propext, Classical.choice, Quot.sound]
+      comparator_config: comparator.json
+    - declaration: HorizonEinsteinClosure.quarticNullCongruenceRaychaudhuri
+      file: Solution.lean
+      sorry_count: 0
+      axioms: [propext, Classical.choice, Quot.sound]
+      comparator_config: comparator.json
+      literature_dependencies:
+        - statement: The horizon gravitational null-energy response is quadratic in perturbative shear around a Killing horizon.
+          source: Gravitational algebras and the generalized second law
+    - declaration: HorizonEinsteinClosure.nullConeRigidity4
+      file: Solution.lean
+      sorry_count: 0
+      axioms: [propext, Classical.choice, Quot.sound]
+      comparator_config: comparator.json
+    - declaration: HorizonEinsteinClosure.nullClausiusForcesLocalEinsteinShape
+      file: Solution.lean
+      sorry_count: 0
+      axioms: [propext, Classical.choice, Quot.sound]
+      comparator_config: comparator.json
+      literature_dependencies:
+        - statement: The local thermodynamic derivation requires the null-contracted tensor relation for every local null generator.
+          source: "Thermodynamics of Spacetime: The Einstein Equation of State"
+
+automation:
+  methods:
+    - method: agent
+      models:
+        - OpenAI GPT-family; exact model revision not recorded
+      framework: Codex
+      tool_setup: >-
+        Human-directed theorem design, Lean compiler iteration, dependency
+        extraction, and Palomar packaging. Lean 4.31.0 and Mathlib commit
+        fabf563a7c95a166b8d7b6efca11c8b4dc9d911f were pinned. Challenge
+        imports only Mathlib. Solution reconstructs the compared declarations
+        from independently compiled source modules and direct kernel proofs.
+      cost:
+        wall_time: Sessions through 2026-09-08; cumulative elapsed effort not tracked
+        spend_usd: not tracked
+        hardware: local machine
+      prompting_notes: >-
+        Stephanie Alexander supplied the PDT research program, required the
+        complete rho-Q coupling and horizon mechanism to remain visible, and
+        directed preparation of a focused public repository. The comparison
+        surface was designed to avoid presenting isolated algebraic
+        corollaries as the main result: one capstone states the entire
+        boundary-to-Einstein chain, with four independently compared support
+        theorems. Physical assumptions are named in the theorem hypotheses.
+  spend_usd: not tracked
+  notes: >-
+    Kernel verification establishes the formal implications. It is not
+    independent peer review and does not validate the physical KMS placement
+    or the empirical value of the coupling.
+
+fidelity:
+  divergences: >-
+    Jacobson's differential-geometric and quantum-field argument is represented
+    by its local null-contraction premise followed by a fully formalized
+    finite-dimensional tensor closure. Faulkner-Speranza's interacting
+    horizon algebra is represented by an explicit two-channel affine optical
+    model and a scalar horizon residual. The quartic 1/Q KMS placement, the
+    rho-Q coupling definition, and the exponent 224 are additional PDT inputs
+    stated openly. The sources do not contain those assignments. No global
+    curved-spacetime equivalence is claimed.
+
+review:
+  status: self-assessed
+  reviewers: []
+  notes: >-
+    The package was rebuilt from the pinned toolchain. The Solution source has
+    no sorry, admit, or added axiom. The Challenge/Solution types are selected
+    by comparator.json. Literature attribution distinguishes the standard
+    horizon and null-cone framework from the PDT-specific placement.
+
+alignment:
+  namespace: HorizonEinsteinClosure
+  statements:
+    - source: Integrated horizon-to-Einstein closure
+      lean: HorizonEinsteinClosure.horizonEinsteinClosure
+      module: Solution
+      status: proved
+      note: >-
+        One declaration explicitly states the KMS boundary assumptions, full
+        affine optical classification, null congruence, Raychaudhuri equation,
+        shear-flux/area identity, horizon balance, irrational rho-Q clocks,
+        local Einstein equation, and exponent-224 determinant.
+    - source: Quartic KMS boundary classification
+      lean: HorizonEinsteinClosure.kmsBoundarySelectsOpticalFlow
+      module: Solution
+      status: proved
+      note: >-
+        For an arbitrary two-by-two response satisfying the stated symmetry,
+        normalization, and core-line conditions, the whole affine flow is
+        forced up to orientation; both branches have the same determinant,
+        quadratic flux, area loss, and horizon update.
+    - source: Explicit null congruence and Raychaudhuri focusing
+      lean: HorizonEinsteinClosure.quarticNullCongruenceRaychaudhuri
+      module: Solution
+      status: proved
+      note: >-
+        Constructs null tangents and the exact Jacobi cross-section, then
+        proves the derivative and vacuum Raychaudhuri identity throughout the
+        nonsingular unit interval.
+    - source: Four-dimensional null-cone rigidity
+      lean: HorizonEinsteinClosure.nullConeRigidity4
+      module: Solution
+      status: proved
+      note: >-
+        A symmetric form vanishing quadratically on every Minkowski-null
+        vector is a scalar metric multiple. The source proof uses explicit
+        rational null probes rather than importing a classification theorem.
+    - source: Null Clausius to Einstein tensor
+      lean: HorizonEinsteinClosure.nullClausiusForcesLocalEinsteinShape
+      module: Solution
+      status: proved
+      note: >-
+        Applies null-cone rigidity to Ricci minus kappa times stress and
+        produces the local Einstein-tensor equation with one cosmological
+        scalar.
+
+acknowledgements: >-
+  Lean and Mathlib contributors; the authors of the cited horizon,
+  thermodynamic-gravity, and operator-algebra literature; and the Palomar
+  Registry maintainers.
