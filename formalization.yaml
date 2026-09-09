@@ -1,24 +1,35 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json
 version: v0.4
 
 project:
-  name: From a quartic KMS horizon line to local Einstein closure
+  name: From a pQ bulk response and quartic horizon line to local Einstein closure
   description: >-
-    Five compared declarations formalize one conditional horizon-to-Einstein
-    chain. Exchange symmetry, unit normalization, and a quartic 1/Q KMS/core
-    eigenweight classify an arbitrary two-channel boundary response and force
-    its complete affine optical flow up to orientation. The flow is realized
-    as the transverse Jacobi map of explicit affine null geodesics, satisfies
-    the twist-free vacuum Raychaudhuri equation, and has boost-weighted shear
-    flux exactly equal to its missing endpoint area. The horizon constraint
-    fixes the corresponding modular-energy update. A constructive
-    four-dimensional null-cone rigidity theorem then converts the local null
-    Clausius contraction into the Einstein-tensor equation. The integrated
-    capstone retains the complete rho-Q response determinant with exponent
-    224 and the irrational independence of the two modular clocks. The
-    physical placement of the quartic KMS line and the local Clausius
-    contraction are explicit hypotheses rather than claimed consequences of
-    the finite algebra.
+    Six compared declarations formalize a conditional package with an
+    optical/horizon branch and a separate Clausius-to-Einstein branch. A
+    Hodge-pair theorem first keeps the rho Q weighted divide distinct
+    from the normalized quartic response while proving their exact
+    orientation-paired products, (rho Q)I and (1-lambda4^2)I. An assumed 1/Q
+    exchange-line eigenweight, proposed as the quartic
+    KMS/core line, together with exchange symmetry and unit normalization,
+    classifies an arbitrary two-channel boundary response and its entire
+    affine screen flow into one of two global orientation branches. The
+    positive branch is the transverse map of explicit affine null rays in
+    flat double-null coordinates; its defined expansion and shear satisfy an
+    exact identity having the twist-free vacuum Raychaudhuri form. The two
+    orientations have the same scalar determinant and shear-square data, and
+    the normalized boost-weighted shear flux equals the missing endpoint
+    area. A defined modular-energy increment preserves an
+    assumed scalar horizon residual. Given the separate local null Clausius
+    premise, a constructive four-dimensional null-cone rigidity theorem
+    produces the Einstein-tensor form. The integrated capstone also retains
+    the exact determinant identity for the repository-defined alphaG_PDT with the
+    defined exponent 224, and the irrational independence of the two modular
+    clocks. Here rho, also denoted p, enters the bulk factor through
+    (rho Q)^224; Q enters both that joint factor and the separate horizon
+    determinant. The physical Hodge assignment, KMS-line placement, initial
+    horizon residual, dimensionless Clausius premise with alphaG_PDT, and
+    empirical identification alphaG_PDT = G_N m_e^2/(hbar c) are not claimed
+    consequences of the finite algebra.
   authors:
     - Stephanie Alexander
   license: MIT
@@ -38,6 +49,23 @@ classification:
     - "81R15"
 
 sources:
+  - title: "Deriving Gravity from First Principles: The Dimensional Origin of Newton's Constant"
+    authors:
+      - Stephanie Alexander
+    id: DOI:10.5281/zenodo.20417378
+    type: article
+    location: https://doi.org/10.5281/zenodo.20417378
+    relationship: formalizes
+    author_endorsement: participated
+    note: >-
+      Source for the PDT proposal of the joint rho Q bulk response and
+      quartic physical screening, the PDT derivation of exponent 224, and the
+      numerical comparison with the dimensionless gravitational coupling
+      alpha_G = G_N m_e^2/(hbar c), from which dimensional G_N is recovered
+      by restoring units. The present repository
+      formalizes exact conditional consequences of the displayed coupling and
+      horizon model; it does not turn the paper's physical identification or
+      numerical comparison into a kernel theorem.
   - title: "Thermodynamics of Spacetime: The Einstein Equation of State"
     authors:
       - Ted Jacobson
@@ -52,6 +80,57 @@ sources:
       the pointwise algebraic step from that contraction to the Einstein
       tensor. This repository assumes the local Clausius contraction and does
       not claim to re-formalize Jacobson's quantum-field-theoretic premises.
+  - title: The Standard Model
+    authors:
+      - CERN
+    type: web post
+    location: https://home.cern/science/physics/standard-model/
+    relationship: background
+    author_endorsement: n/a
+    note: >-
+      Authoritative background for the limited comparison that gravity is not
+      part of the Standard Model. It supplies no PDT assignment.
+  - title: Experimental Tests of Gravitational Theory
+    authors:
+      - T. Damour
+    type: review article
+    location: https://pdg.lbl.gov/2023/reviews/rpp2023-rev-gravity-tests.pdf
+    relationship: background
+    author_endorsement: not-contacted
+    note: >-
+      Source for the standard general-relativistic action and field equation
+      containing Newton's constant as the gravitational coupling.
+  - title: "CODATA recommended values of the fundamental physical constants: 2022"
+    authors:
+      - Peter J. Mohr
+      - David B. Newell
+      - Barry N. Taylor
+      - Eite Tiesinga
+    id: DOI:10.1063/5.0279860
+    type: article
+    location: https://doi.org/10.1063/5.0279860
+    relationship: background
+    author_endorsement: not-contacted
+    note: >-
+      Metrology source for the experimental measurements and recommended value
+      of G_N. It is used only to support the comparison between an empirical
+      coupling and the proposed arithmetic alphaG_PDT.
+  - title: KMS states on the C*-algebras of finite graphs
+    authors:
+      - Astrid an Huef
+      - Marcelo Laca
+      - Iain Raeburn
+      - Aidan Sims
+    type: article
+    location: https://arxiv.org/abs/1205.2194
+    relationship: adapts
+    author_endorsement: not-contacted
+    note: >-
+      Source for the finite strongly connected graph KMS theorem at the
+      critical Perron inverse temperature. The repository formalizes finite
+      cubic and quartic Perron/KMS data in its development closure. That
+      theorem does not choose Q rather than rho as a physical horizon line;
+      the quartic placement remains an explicit PDT premise.
   - title: Gravitational algebras and the generalized second law
     authors:
       - Thomas Faulkner
@@ -86,9 +165,20 @@ sources:
     author_endorsement: participated
     note: >-
       Gives the exact theorem dependency table, separates kernel implications
-      from physical premises, and states the falsifiers for the two placement
-      assumptions. This is a source-to-code record and makes no independent
-      literature-priority claim.
+      from physical and model inputs, and states falsifiers for the
+      principal physical placements. This is a source-to-code record and makes
+      no independent literature-priority claim.
+  - title: The Hodge bulk and screen products
+    authors:
+      - Stephanie Alexander
+    type: research note
+    location: HODGE_BULK_SCREEN.md
+    relationship: formalizes
+    author_endorsement: participated
+    note: >-
+      States the distinct orientation-paired operator products producing the
+      joint rho Q bulk scalar and the normalized quartic screen scalar, and
+      marks both proposed physical placements explicitly.
   - title: The Perron optical flow
     authors:
       - Stephanie Alexander
@@ -97,8 +187,9 @@ sources:
     relationship: formalizes
     author_endorsement: participated
     note: >-
-      States the explicit affine null congruence, its Jacobi map, optical
-      tensors, Raychaudhuri equation, and horizon energy-area balance.
+      States the explicit affine null-ray family, its transverse separation map,
+      the optical scalar identities, and the conditional horizon energy-area
+      balance.
   - title: KMS selection of the horizon shear
     authors:
       - Stephanie Alexander
@@ -127,25 +218,30 @@ related_formalizations:
       Registered PDT Lean core containing the cubic/quartic kinematic setting.
       The present entry does not resubmit those registered declarations.
   - id: PALOMAR-2026-08-31-000004
-    relationship: builds-on
+    relationship: other
     note: >-
       Registered degree-two through degree-four Mahler-measure minima,
-      including the distinguished cubic and quartic polynomials.
+      including the distinguished cubic and quartic polynomials. This is
+      selection context and is not a premise of the compared declarations.
   - id: PALOMAR-2026-09-01-000005
-    relationship: builds-on
+    relationship: other
     note: >-
       Registered degree-twelve compositum of rho and Q, including its exact
-      algebraic-unit and conjugate data.
+      algebraic-unit and conjugate data. It supplies lineage for the joint
+      scale; the clock-independence theorem here is self-contained.
   - id: PALOMAR-2026-09-01-000012
-    relationship: builds-on
+    relationship: other
     note: >-
       Registered golden-family boundary containing the cubic Pisot and
-      quartic non-Pisot classification used as PDT context.
+      quartic non-Pisot classification. This is PDT interpretation context,
+      not a premise of the compared declarations.
   - id: PALOMAR-2026-09-02-000014
-    relationship: builds-on
+    relationship: other
     note: >-
       Registered trace-form tensor-product results and the signatures of the
-      cubic, quartic, and compositum fields.
+      cubic, quartic, and compositum fields. This is adjacent geometric
+      context; the selected null-cone theorem uses an explicitly defined
+      diagonal Minkowski metric.
   - id: PALOMAR-2026-08-19-000006
     relationship: other
     note: >-
@@ -156,20 +252,33 @@ related_formalizations:
     note: >-
       Pinned development repository from which the complete transitive Lean
       dependency closure was extracted. This repository adds the integrated
-      horizon-to-Einstein capstone and a new five-result comparison surface.
+      horizon-to-Einstein capstone and a new six-result comparison surface.
 
 status:
   scope: >-
-    The compared declarations prove a conditional mathematical bridge: static
-    quartic KMS boundary data classify a complete affine null-screen history;
-    the history obeys exact Raychaudhuri focusing and modular area balance;
-    and the local null Clausius contraction forces the Einstein-tensor shape
-    with the displayed rho-Q coupling. The integrated theorem explicitly
-    includes the exponent-224 determinant and the irrational modular-clock
-    relation. It does not prove that a physical interacting horizon carries
-    the proposed 1/Q line, derive the Clausius premise from quantum fields,
-    construct a global nonlinear spacetime, prove the differential Bianchi
-    identity, or validate the numerical coupling against experiment.
+    The compared declarations prove a conditional mathematical package. An
+    assumed 1/Q exchange-line eigenweight plus symmetry and normalization
+    classify an affine two-channel screen history up to orientation. The
+    explicit screen functions satisfy exact null-ray, optical-scalar,
+    Raychaudhuri-form, flux, and conditional area-balance identities. Given a
+    separate dimensionless local null Clausius contraction in electron-mass
+    natural units with the repository-defined rho Q coupling, null-cone
+    rigidity forces the Einstein-tensor shape. The
+    integrated theorem also includes the exact determinant identity for the
+    defined exponent-224 block, the separate Hodge-pair products exposing the
+    rho Q bulk scalar and quartic screen scalar, and the irrational
+    modular-clock relation.
+    The cubic root rho (p) enters through every direction of the joint
+    (rho Q)^224 bulk block; Q additionally supplies the proposed two-channel
+    boundary weight and determinant. It does not prove that physical curvature
+    assigns rho and Q to the two Hodge chiralities, that an interacting horizon
+    carries the proposed 1/Q line, derive the initial horizon residual or
+    Clausius premise from quantum fields, re-formalize the broader PDT
+    derivation selecting 224, construct a global nonlinear spacetime, prove the
+    differential Bianchi identity, or validate the coupling against experiment.
+    The physical proposal identifies the defined scalar with
+    alpha_G = G_N m_e^2/(hbar c); dimensional G_N is recovered only after
+    restoring that normalization.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms:
@@ -187,6 +296,11 @@ status:
           source: "Thermodynamics of Spacetime: The Einstein Equation of State"
         - statement: Horizon gravitational null energy contains a quadratic shear term and horizon-cut area is related to a one-sided modular Hamiltonian.
           source: Gravitational algebras and the generalized second law
+    - declaration: HorizonEinsteinClosure.hodgeBulkAndQuarticScreen
+      file: Solution.lean
+      sorry_count: 0
+      axioms: [propext, Classical.choice, Quot.sound]
+      comparator_config: comparator.json
     - declaration: HorizonEinsteinClosure.kmsBoundarySelectsOpticalFlow
       file: Solution.lean
       sorry_count: 0
@@ -232,12 +346,15 @@ automation:
         hardware: local machine
       prompting_notes: >-
         Stephanie Alexander supplied the PDT research program, required the
-        complete rho-Q coupling and horizon mechanism to remain visible, and
+        defined rho Q coupling and conditional horizon mechanism to remain
+        visible, and
         directed preparation of a focused public repository. The comparison
         surface was designed to avoid presenting isolated algebraic
-        corollaries as the main result: one capstone states the entire
-        boundary-to-Einstein chain, with four independently compared support
-        theorems. Physical assumptions are named in the theorem hypotheses.
+        corollaries as the main result: one capstone states an integrated
+        conditional package with separate optical/horizon and
+        Clausius-to-Einstein branches, with five independently compared
+        support theorems. Physical assumptions are named in the theorem
+        hypotheses.
   spend_usd: not tracked
   notes: >-
     Kernel verification establishes the formal implications. It is not
@@ -248,11 +365,24 @@ fidelity:
   divergences: >-
     Jacobson's differential-geometric and quantum-field argument is represented
     by its local null-contraction premise followed by a fully formalized
-    finite-dimensional tensor closure. Faulkner-Speranza's interacting
+    finite-dimensional tensor closure. Its variables are unit-free real
+    matrices; the physical reading uses electron-mass natural units so the
+    Einstein coefficient is 8 pi alpha_G, where
+    alpha_G = G_N m_e^2/(hbar c). With
+    ell_e = hbar/(m_e c), curvature is scaled by ell_e^2, stress by the
+    electron rest-energy density m_e c^2/ell_e^3, area by ell_e^2, and the
+    cosmological term by ell_e^2. Undoing those normalizations gives the usual
+    coefficient 8 pi G_N/c^4. Faulkner-Speranza's interacting
     horizon algebra is represented by an explicit two-channel affine optical
-    model and a scalar horizon residual. The quartic 1/Q KMS placement, the
-    rho-Q coupling definition, and the exponent 224 are additional PDT inputs
-    stated openly. The sources do not contain those assignments. No global
+    model and a scalar horizon residual. The Hodge divide is an exact
+    finite-dimensional model of the proposed chiral assignment, not a
+    derivation of that assignment from physical curvature. The deposited PDT gravity paper
+    supplies the rho Q coupling proposal, the derivation of exponent 224, and
+    the quartic screening formula. The identification of 1/Q with a physical
+    horizon KMS/core line is a later premise developed in this repository and
+    its accompanying note. This artifact takes 224 by definition and does not
+    re-formalize its selection argument. The Jacobson, Faulkner-Speranza, and
+    Witten sources do not contain the PDT assignments. No global
     curved-spacetime equivalence is claimed.
 
 review:
@@ -272,10 +402,28 @@ alignment:
       module: Solution
       status: proved
       note: >-
-        One declaration explicitly states the KMS boundary assumptions, full
-        affine optical classification, null congruence, Raychaudhuri equation,
-        shear-flux/area identity, horizon balance, irrational rho-Q clocks,
-        local Einstein equation, and exponent-224 determinant.
+        One declaration explicitly states the KMS/core boundary assumptions,
+        affine optical classification, positive-branch null-ray realization,
+        Raychaudhuri-form identity, shear-flux/area identity, conditional
+        horizon balance, irrational rho Q clocks, local Einstein equation, and
+        determinant identity for the defined exponent-224 block. The cubic
+        root rho (p) enters the joint bulk determinant and the exact
+        orientation-paired Hodge divide; Q enters that joint product and the
+        separate normalized screen response. The horizon balance and Einstein
+        coefficient use the same defined dimensionless alphaG_PDT. This means
+        the theorem uses the same scalar in its two displayed premises; it
+        does not prove that those premises are jointly realized physically.
+    - source: Hodge bulk and quartic screen products
+      lean: HorizonEinsteinClosure.hodgeBulkAndQuarticScreen
+      module: Solution
+      status: proved
+      note: >-
+        For arbitrary real rho and nonzero q, states two distinct operator
+        identities: pairing the two weighted orientations gives (rho q)I,
+        and the normalized response and its flip give ((2q-1)/q^2)I. The
+        integrated capstone specializes rho and q to the positive cubic and
+        quartic roots. The theorem does not identify the two operators or
+        infer their physical placement from the algebra.
     - source: Quartic KMS boundary classification
       lean: HorizonEinsteinClosure.kmsBoundarySelectsOpticalFlow
       module: Solution
@@ -284,15 +432,15 @@ alignment:
         For an arbitrary two-by-two response satisfying the stated symmetry,
         normalization, and core-line conditions, the whole affine flow is
         forced up to orientation; both branches have the same determinant,
-        quadratic flux, area loss, and horizon update.
-    - source: Explicit null congruence and Raychaudhuri focusing
+        quadratic flux, area loss, and defined conditional horizon update.
+    - source: Explicit null-ray family and Raychaudhuri-form identity
       lean: HorizonEinsteinClosure.quarticNullCongruenceRaychaudhuri
       module: Solution
       status: proved
       note: >-
-        Constructs null tangents and the exact Jacobi cross-section, then
-        proves the derivative and vacuum Raychaudhuri identity throughout the
-        nonsingular unit interval.
+        Constructs null tangents and the exact transverse separation map, then
+        proves the derivative and scalar identity having the vacuum
+        Raychaudhuri form throughout the nonsingular unit interval.
     - source: Four-dimensional null-cone rigidity
       lean: HorizonEinsteinClosure.nullConeRigidity4
       module: Solution

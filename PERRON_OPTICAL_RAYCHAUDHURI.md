@@ -133,9 +133,9 @@ Applying the trace defect twice and taking its complement gives
 ```
 
 The new capstone proves that this core coefficient is the determinant of the
-vacuum Jacobi endpoint.  The operator-algebraic self-defect and geometric
-shear self-focusing are therefore two exact realizations of the same
-polynomial.
+explicit Jacobi endpoint.  The operator-algebraic self-defect and geometric
+shear self-focusing are therefore two exact expressions of the same
+polynomial within this model.
 
 The physical relevance of the crossed product is standard rather than a PDT
 assumption.  Witten identifies the modular crossed product of the exterior
@@ -159,8 +159,9 @@ the horizon identity derived in the crossed-product treatment,
 A_cut/(4G) = A_infinity/(4G) - K_cut.
 ```
 
-For the Perron optical endpoint, Lean derives the required modular-energy
-increment rather than assuming it:
+For the Perron optical endpoint, the repository defines the corresponding
+modular-energy increment, and Lean proves that it exactly preserves the
+assumed scalar horizon residual:
 
 ```text
 Delta K_Q = inverseG * lambda4^2 * A_before / 4,
@@ -187,14 +188,14 @@ GravityScreening.rhoQOpticalRaychaudhuriGravity_capstone
 in `GravityScreening/PerronOpticalRaychaudhuri.lean`.  It states together:
 
 1. irrational independence of the cubic and quartic modular clocks;
-2. the complete `(rho Q)^224 S_Q/pi^4` gravity determinant;
+2. the exact determinant identity for the repository-defined coupling;
 3. the continuous-core Q phase and self-defect;
-4. an explicit affine congruence with null Minkowski tangents;
+4. an explicit affine family of rays with null Minkowski tangents;
 5. affine Jacobi propagation with zero acceleration;
-6. the exact differential Raychaudhuri equation;
+6. the exact differential identity having the vacuum Raychaudhuri form;
 7. the canonical Perron endpoint;
 8. the exact quartic screen-area ratio;
-9. preservation of the horizon-cut constraint after the derived modular-energy
+9. preservation of the horizon-cut constraint after the defined modular-energy
    increment.
 
 All derivative statements are kernel checked.  The file uses no `sorry`,
@@ -206,7 +207,7 @@ This result removes the earlier arbitrary tangential-frame trajectory.  The
 Perron block now has an explicit null-geometric history and obeys the standard
 vacuum focusing equation.
 
-The remaining physical question is narrower:
+For this optical boundary step, one remaining physical question is:
 
 > What horizon boundary law fixes the initial trace-free shear to the Perron
 > value `lambda4=1-1/Q`?

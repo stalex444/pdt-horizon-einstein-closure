@@ -3,6 +3,7 @@
   "solution_module": "Solution",
   "theorem_names": [
     "HorizonEinsteinClosure.horizonEinsteinClosure",
+    "HorizonEinsteinClosure.hodgeBulkAndQuarticScreen",
     "HorizonEinsteinClosure.kmsBoundarySelectsOpticalFlow",
     "HorizonEinsteinClosure.quarticNullCongruenceRaychaudhuri",
     "HorizonEinsteinClosure.nullConeRigidity4",

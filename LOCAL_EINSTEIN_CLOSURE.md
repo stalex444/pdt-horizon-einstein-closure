@@ -2,9 +2,10 @@
 
 ## Result
 
-The gravity package previously contained the full linearized Pauli--Fierz
-response, the quartic horizon shear, the Raychaudhuri focusing law, and the
-PDT value of the gravitational coupling.  This note adds the pointwise tensor
+The gravity package previously contained a formalized Pauli--Fierz response
+model, the quartic horizon shear, the Raychaudhuri-form identity, and the
+repository-defined PDT gravitational coupling.  This note adds the pointwise
+tensor
 step that turns Jacobson's null-horizon relation into the Einstein equation.
 
 In a local orthonormal frame, define
@@ -63,16 +64,30 @@ R_ab - (R/2) g_ab + Lambda g_ab = kappa T_ab.
 ```
 
 This is the local Einstein tensor equation, with the cosmological term left
-as the usual integration freedom.  The PDT specialization sets
+as the usual integration freedom.  The PDT specialization is written in
+electron-mass natural units, `hbar=c=m_e=1`, and uses the defined dimensionless
+coefficient
 
 ```text
-kappa = 8 pi G_PDT
+kappa = 8 pi alphaG_PDT
+```
+
+where the physical identification to be tested is
+
+```text
+alphaG_PDT = alpha_G = G_N m_e^2 / (hbar c).
+```
+
+Equivalently, restoring units gives
+
+```text
+G_N = alphaG_PDT hbar c / m_e^2.
 ```
 
 and proves in the same capstone that
 
 ```text
-1/G_PDT
+1/alphaG_PDT
   = det((rho Q) I_224) det(K_Q) / pi^4.
 ```
 
@@ -85,11 +100,12 @@ positive roots of `rho^3=rho+1` and `Q^4=Q+1`.
 This closes the algebraic final step of the Jacobson route:
 
 ```text
-PDT coefficient
-  -> quartic KMS horizon shear
+defined PDT coefficient
+  + assumed quartic KMS/core horizon line
+  -> classified horizon shear
   -> quadratic graviton null energy
   -> Raychaudhuri area response
-  -> local null Clausius relation
+  + assumed local null Clausius relation
   -> Einstein tensor shape.
 ```
 
@@ -110,10 +126,12 @@ stress-energy conservation; that differential-geometric step is not yet
 formalized here.  Nor does the theorem construct a global solution of the
 nonlinear equations for arbitrary matter.
 
-Accordingly, this is a rigorous nonlinear **equation-shape closure**, not a
+Accordingly, this is a rigorous pointwise algebraic **equation-shape closure**, not a
 formal construction of every curved spacetime.  The remaining premises are
-the familiar premises of the Jacobson derivation plus PDT's explicit physical
-identification of the Q KMS line with the horizon modular channel.
+the familiar inputs of the Jacobson derivation, PDT's physical identification
+of the Q KMS line with the horizon modular channel, the electron-mass
+normalization used above, and empirical equality of the defined
+`alphaG_PDT` with the measured dimensionless `alpha_G`.
 
 ## Kernel surface
 

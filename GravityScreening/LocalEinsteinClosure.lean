@@ -149,9 +149,11 @@ theorem nullClausius_forces_localEinsteinShape
     smul_eq_mul] at hij ⊢
   linarith [hij]
 
-/-- PDT specialization of the local Jacobson closure.  The null Clausius
-relation uses the standard Einstein coefficient `8*pi*G`, with `G` supplied
-by the complete rho-Q determinant. -/
+/-- PDT specialization of the local Jacobson closure.  In electron-mass
+natural units the dimensionless null Clausius relation uses
+`8*pi*alphaG`, with `alphaG` supplied by the complete rho Q determinant.
+Restoring units requires the separate physical identification
+`alphaG = G_N*m_e^2/(hbar*c)`. -/
 theorem pdtNullClausius_forces_localEinsteinShape
     (ricci stress : Matrix (Fin 4) (Fin 4) ℝ)
     (rho q : ℝ)

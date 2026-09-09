@@ -31,7 +31,8 @@ J(t) = I + t [[0,-lambda4],[-lambda4,0]]
 ```
 
 or its sign-flipped version.  The sign is an orientation choice.  Both
-branches have the same determinant, focusing, and gravity response.
+branches have the same determinant, focusing, and value in the
+repository-defined response formula.
 
 The theorem therefore fixes more than the endpoint area factor.  It fixes
 the initial optical shear and every intermediate screen map.
@@ -85,10 +86,11 @@ gravitational energy survives.
 
 The mathematical result is unconditional once the four displayed boundary
 conditions are supplied.  The quartic polynomial fixes `Q`; the primitive
-quartic graph fixes the critical KMS weight `1/Q`; exchange symmetry and unit
-normalization then fix the response matrix; affine null propagation fixes the
-complete congruence; Raychaudhuri fixes its focusing; and the horizon
-constraint fixes the modular-energy/area balance.
+quartic graph supplies the critical numerical KMS weight `1/Q`; exchange
+symmetry and unit normalization then fix the response matrix; the chosen
+affine screen model fixes the intermediate maps; the defined optical scalars
+satisfy the Raychaudhuri-form identity; and the defined modular-energy
+increment preserves the assumed horizon residual.
 
 The remaining physical placement statement is now singular and explicit:
 
@@ -103,10 +105,8 @@ constraint produces a crossed product, the graviton null energy is squared
 shear, and the horizon-cut area is balanced by the one-sided modular
 Hamiltonian.  They do not independently select the discrete number `Q`.
 
-This is a useful stopping point for the derivation.  A physical theory must
-state at least one correspondence between its mathematical structure and the
-world.  Here that correspondence is narrow, falsifiable, and now isolated
-from all downstream consequences.
+For this boundary-classification step, the physical correspondence is narrow,
+falsifiable, and isolated from the downstream mathematical consequences.
 
 ## Kernel surface
 

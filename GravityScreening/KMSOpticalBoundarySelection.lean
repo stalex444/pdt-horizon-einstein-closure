@@ -71,8 +71,8 @@ theorem evenKMSBoundary_forces_opticalFlow
   simp only [affineScreenFlow, affineScreenVelocity] at hV ⊢
   rw [hV]
 
-/-- With no orientation convention, the selected flow is unique up to the
-sign of the trace-free shear. -/
+/-- At each affine time, an unoriented core weight places the response on one
+of the two sign-related trace-free shear branches. -/
 theorem unorientedKMSBoundary_forces_opticalFlow_or_flip
     (M : Matrix (Fin 2) (Fin 2) ℝ) (q t : ℝ)
     (hexchange : IsChannelExchangeSymmetric M)
@@ -113,8 +113,8 @@ theorem unitBoostWeightedInitialShearFlux_eq_sq (l : ℝ) :
   norm_num
   ring
 
-/-- At the quartic KMS value, the graviton shear flux is exactly the missing
-area fraction of the Perron endpoint. -/
+/-- At the quartic KMS value, the defined boost-weighted shear flux is exactly
+the missing area fraction of the Perron endpoint. -/
 theorem quarticBoostShearFlux_eq_areaDeficit (q : ℝ) :
     unitBoostWeightedInitialShearFlux (lambda4 q) =
       1 - perronOpticalAreaRatio (lambda4 q) 1 := by
@@ -124,7 +124,7 @@ theorem quarticBoostShearFlux_eq_areaDeficit (q : ℝ) :
 
 /-- Boundary-selection capstone.  A quartic KMS line on either exchange
 eigenspace fixes the entire affine screen flow up to orientation.  Both
-branches have zero initial expansion, identical quadratic graviton shear
+branches have zero initial expansion, identical quadratic shear
 flux, the same endpoint area, and the exact horizon-constraint update. -/
 theorem quarticKMSOpticalBoundarySelection_capstone
     (M : Matrix (Fin 2) (Fin 2) ℝ)
@@ -135,9 +135,10 @@ theorem quarticKMSOpticalBoundarySelection_capstone
     (hmean : HasUnitDiagonalMean M)
     (hcore : HasUnorientedCoreWeight M q)
     (h0 : horizonConstraintResidual charge K inverseG area = 0) :
-    (∀ t,
-      affineScreenFlow M t = perronOpticalJacobi (lambda4 q) t ∨
-        affineScreenFlow M t = perronOpticalJacobi (-lambda4 q) t) ∧
+    ((∀ t, affineScreenFlow M t =
+        perronOpticalJacobi (lambda4 q) t) ∨
+      (∀ t, affineScreenFlow M t =
+        perronOpticalJacobi (-lambda4 q) t)) ∧
       Matrix.det M = screening (lambda4 q) ∧
       lambda4 q = quarticBiResidualCoefficient q ∧
       0 < Matrix.det M ∧
@@ -159,12 +160,27 @@ theorem quarticKMSOpticalBoundarySelection_capstone
   have hdetpos : 0 < Matrix.det M := by
     rw [hdet]
     exact quarticScreening_pos q hq1
-  refine ⟨?_, hdet, hresidual, hdetpos,
+  have hflow :
+      (∀ t, affineScreenFlow M t =
+        perronOpticalJacobi (lambda4 q) t) ∨
+      (∀ t, affineScreenFlow M t =
+        perronOpticalJacobi (-lambda4 q) t) := by
+    rcases hcore with heven | hodd
+    · left
+      intro t
+      exact evenKMSBoundary_forces_opticalFlow
+        M q t hexchange hmean heven
+    · right
+      intro t
+      have hM := oddClockWeight_forces_constitutiveBlock
+        M q hexchange hmean hodd
+      rw [hM]
+      ext i j
+      fin_cases i <;> fin_cases j <;>
+        simp [affineScreenFlow, perronOpticalJacobi, constitutiveBlock]
+  refine ⟨hflow, hdet, hresidual, hdetpos,
     unitBoostWeightedInitialShearFlux_eq_sq _, ?_,
     (perronOptical_initial_data (lambda4 q)).1, ?_⟩
-  · intro t
-    exact unorientedKMSBoundary_forces_opticalFlow_or_flip
-      M q t hexchange hmean hcore
   · rw [unitBoostWeightedInitialShearFlux_eq_sq, hdet]
     simp [screening]
   · rw [hdet]
