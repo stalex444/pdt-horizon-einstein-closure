@@ -95,7 +95,7 @@ the orientation of the shear left free.  Both orientations have the same
 determinant and therefore the same value in the repository's defined coupling
 formula.
 
-The selected structure is then carried through five mathematical settings:
+The selected structure is then carried through six mathematical settings:
 
 | Setting | Statement established under the displayed inputs |
 |---|---|
@@ -250,13 +250,21 @@ det J_Q(1) = 1 - lambda4^2 = (2Q - 1)/Q^2.
 
 Lean then realizes `J_Q(t)` as the transverse separation map of explicit
 affine null rays in flat double-null coordinates; the code calls this map
-`opticalJacobi`.  The initial expansion is zero,
-the initial deformation is pure shear, and the screen area changes only at
-quadratic order.  On every nonsingular cut in the unit interval,
+`opticalJacobi`. The defined initial expansion is zero, the initial
+deformation is pure shear, and the transverse area changes only at quadratic
+order. On the nonsingular unit interval, the defined optical scalars satisfy
 
 ```text
 theta' = -theta^2/2 - sigma_ab sigma^ab.
 ```
+
+The displayed cuts are not generally orthogonal to their ray tangents, so
+the family does not itself establish a single null hypersurface with these
+rays as generators. The compared result proves nullness, the transverse
+coordinate identities, and the scalar Raychaudhuri-form identity. An
+orthogonal-screen construction and identification with a physical horizon
+remain separate. The zero Jacobi acceleration describes this flat model;
+Ricci-flat vacuum alone can still have Weyl tidal curvature.
 
 The unit boost-weighted initial shear flux is exactly
 
@@ -264,8 +272,8 @@ The unit boost-weighted initial shear flux is exactly
 lambda4^2 = 1 - det J_Q(1).
 ```
 
-Within this explicit screen model, the screening square is the second-order
-area response of a trace-free null shear.  The defined modular-energy
+Within this explicit transverse model, the screening square is the
+second-order area response of the defined trace-free shear. The defined modular-energy
 increment, using `1/alphaG_PDT`, exactly preserves the assumed scalar horizon
 residual.  Thus the horizon balance and the local Einstein coefficient use
 the same defined coupling.
@@ -414,6 +422,7 @@ lake build
 The substantive source files for the new bridge are:
 
 - `GravityScreening/ConformalGeneratorCount.lean`
+- `GravityScreening/ConformalResponseAlgebra.lean`
 - `GravityScreening/PdtStabilizer.lean`
 - `GravityScreening/StructuralGravityExponent.lean`
 - `GravityScreening/PerronOpticalRaychaudhuri.lean`

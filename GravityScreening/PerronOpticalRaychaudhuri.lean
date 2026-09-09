@@ -3,18 +3,19 @@ import GravityScreening.CoreClockDuality
 import GravityScreening.HorizonCommutingSquare
 
 /-!
-# Perron optical flow and the vacuum Raychaudhuri law
+# Perron optical flow and a Raychaudhuri-form identity
 
 The canonical compressed Perron response is realized here as the endpoint of
-an affine two-dimensional Jacobi flow. Its initial optical velocity is
-symmetric and trace free, hence pure shear. The Jacobi acceleration vanishes.
-Nevertheless the screen area loses a quadratic amount because the shear
-focuses the congruence. The expansion and shear obey the twist-free vacuum
-Raychaudhuri equation exactly.
+an affine two-dimensional transverse map. Its initial velocity is symmetric
+and trace free, and its acceleration vanishes. Its determinant loses a
+quadratic amount; the defined expansion and shear satisfy the scalar identity
+having the twist-free vacuum Raychaudhuri form.
 
-This constructs a legitimate null-screen kinematics for the quartic matrix.
-The remaining physical identification is that this particular Perron-selected
-flow is the horizon response of the gravitational state.
+Explicit affine null rays in flat coordinates realize this transverse map.
+The displayed cuts are not generally orthogonal to their ray tangents, so
+this construction does not itself establish a single null hypersurface with
+these rays as generators. An orthogonal-screen construction and the physical
+identification with a gravitational horizon remain separate.
 -/
 
 namespace GravityScreening
@@ -74,7 +75,7 @@ theorem perronOpticalJacobi_entry_hasDerivAt
     first | exact hconst | exact hneg
 
 /-- The constant Jacobi velocity has zero derivative: this is the component
-form of the vacuum affine Jacobi equation `J'' = 0`. -/
+form of the flat-spacetime affine Jacobi equation `J'' = 0`. -/
 theorem perronOpticalVelocity_entry_hasDerivAt_zero
     (l t : ℝ) (i j : Fin 2) :
     HasDerivAt (fun _s : ℝ => perronOpticalVelocity l i j) 0 t := by

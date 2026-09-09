@@ -363,7 +363,7 @@ automation:
         surface was designed to avoid presenting isolated algebraic
         corollaries as the main result: one capstone states an integrated
         conditional package with separate optical/horizon and
-        Clausius-to-Einstein branches, with five independently compared
+        Clausius-to-Einstein branches, with six independently compared
         support theorems, including the structural exponent theorem. Physical assumptions are named in the theorem
         hypotheses.
   spend_usd: not tracked
@@ -407,6 +407,10 @@ review:
     no sorry, admit, or added axiom. The Challenge/Solution types are selected
     by comparator.json. Literature attribution distinguishes the standard
     horizon and null-cone framework from the PDT-specific placement.
+    Two independent AI review passes examined theoretical-physics scope and
+    Palomar statement alignment; their findings and documentation corrections
+    are recorded in PRE_SUBMISSION_REVIEW.md. This was not human peer review
+    or official Palomar verification.
 
 alignment:
   namespace: HorizonEinsteinClosure

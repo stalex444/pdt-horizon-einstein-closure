@@ -3,7 +3,8 @@
 ## Result
 
 The canonical quartic response is the endpoint of an exact two-dimensional
-null-screen Jacobi flow.  Write
+affine transverse map, realized by a family of null rays in flat coordinates.
+Write
 
 ```text
 lambda = lambda4 = 1 - 1/Q,
@@ -25,9 +26,8 @@ V_Q^2 = lambda^2 I,
 det J_Q(t) = 1-t^2 lambda^2.
 ```
 
-Thus the Perron-compressed matrix is not merely assigned to a tangential
-frame.  It is realized as a nonsingular affine Jacobi map throughout one
-unit of affine propagation.  Its initial deformation is symmetric and trace
+The Perron-compressed matrix is realized as a nonsingular affine transverse
+map throughout one unit of propagation. Its initial deformation is symmetric and trace
 free: a pure two-dimensional shear with zero initial expansion.
 
 The construction is explicit in flat double-null coordinates
@@ -39,8 +39,12 @@ ds^2 = -2 du dv + dx^2 + dy^2.
 For every transverse label `y`, Lean constructs an affine ray whose
 transverse velocity is `V_Q y`, proves that its constant four-dimensional
 tangent is null, and proves that the transverse cross-section at parameter
-`t` is exactly `J_Q(t)y`.  Thus the matrix path is the screen Jacobi map of
-an explicit null-geodesic congruence.
+`t` is exactly `J_Q(t)y`. This proves a transverse-coordinate realization by
+affine null rays. The displayed cuts are not generally orthogonal to the
+ray tangents: for `X(t,y)=(t,t|V_Q y|^2/2,y+t V_Q y)`, their pairing is
+`g(dX/dt,dX/dy_A)=(V_Q y)_A`. Thus this family does not itself establish a
+single null hypersurface with these rays as generators. An orthogonal-screen
+construction and identification with a physical horizon remain separate.
 
 At the endpoint,
 
@@ -51,7 +55,7 @@ det J_Q(1)
   = S_Q.
 ```
 
-The square has a direct geometric origin.  One screen direction changes at
+The square has a direct origin in the transverse determinant. One eigen-direction changes at
 first order by `-lambda4`, while the other changes by `+lambda4`.  Their
 linear area changes cancel because the shear is trace free.  The surviving
 finite area change is their quadratic product.
@@ -68,7 +72,7 @@ S_Q       = 0.9673014200885396709823267226...
 
 ## Exact optical tensors
 
-The screen-area ratio and expansion are
+The defined transverse-area ratio and expansion are
 
 ```text
 A(t)/A(0) = 1-lambda^2 t^2,
@@ -105,15 +109,14 @@ theta'(t)
   = -theta(t)^2/2 - sigma_ab sigma^ab.
 ```
 
-This is the twist-free four-dimensional Raychaudhuri equation with zero
-Ricci-focusing term.  The Jacobi equation is the stronger affine equation
-`J_Q''=0`: the screen has no optical tidal forcing during the interval.
-The finite focusing comes from the self-action of its initial shear.
-
-This is a legitimate vacuum null-congruence kinematics.  It does not say that
-every vacuum horizon has this shear, or that the shear was dynamically
-created during this interval.  It gives an exact geometric realization of the
-Perron-selected initial datum.
+This scalar identity has the twist-free four-dimensional Raychaudhuri form
+with zero Ricci-focusing term. The equation `J_Q''=0` describes the stronger
+flat-spacetime affine propagation used here; Ricci-flat vacuum alone can
+still have Weyl tidal curvature. The finite transverse-area change is fixed
+by the initial trace-free velocity. The theorem proves these defined scalar
+identities and the null-ray realization above. Their interpretation as the
+optical data of a physical horizon requires the separate geometric and
+physical identifications.
 
 ## The continuous-core clock and the same coefficient
 
@@ -152,12 +155,15 @@ For a horizon cut, the scalar constraint used in the repository is
 charge + K + inverseG * area/4 = 0,
 ```
 
-where `K` is the one-sided modular Hamiltonian.  This is the scalar form of
-the horizon identity derived in the crossed-product treatment,
+where `K` is a real scalar proposed to represent one-sided modular energy.
+The model is motivated by the horizon identity in the crossed-product treatment,
 
 ```text
 A_cut/(4G) = A_infinity/(4G) - K_cut.
 ```
+
+The Lean construction does not construct that modular Hamiltonian or prove
+its physical identification with the scalar `K`.
 
 For the Perron optical endpoint, the repository defines the corresponding
 modular-energy increment, and Lean proves that it exactly preserves the
@@ -172,10 +178,10 @@ A_after
   = S_Q A_before.
 ```
 
-The updated area and modular energy satisfy the same horizon constraint
-exactly.  This supplies a direct geometric meaning for the information that
-leaves the visible area channel: it is the one-sided modular-energy increment
-required by the horizon-cut balance law.
+The updated area and defined modular-energy scalar satisfy the same assumed
+residual exactly. This is a conditional scalar balance identity. It does not
+derive a graviton stress-energy operator or the separate local null Clausius
+premise used in the Einstein-tensor branch.
 
 ## Kernel surface
 
@@ -203,18 +209,18 @@ All derivative statements are kernel checked.  The file uses no `sorry`,
 
 ## What remains
 
-This result removes the earlier arbitrary tangential-frame trajectory.  The
-Perron block now has an explicit null-geometric history and obeys the standard
-vacuum focusing equation.
+The Perron block has an explicit affine transverse history realized by null
+rays, and its defined optical scalars obey the Raychaudhuri-form identity.
+An orthogonal horizon-screen realization remains separate.
 
 For this optical boundary step, one remaining physical question is:
 
 > What horizon boundary law fixes the initial trace-free shear to the Perron
 > value `lambda4=1-1/Q`?
 
-The quartic transfer operator, graph KMS state, continuous-core dual action,
-and null-screen geometry all select or realize the same value.  A derivation
-of that boundary law from the interacting Q sector or a gravitational
+The quartic transfer operator, graph KMS model, continuous-core dual action,
+and affine transverse model express the same scalar after the displayed
+placements. A derivation of that boundary law from the interacting Q sector or a gravitational
 constraint would close the identification.  A calculation producing a
 different shear, a nonzero frequency shift, or mode mixing would falsify this
 minimal mechanism.

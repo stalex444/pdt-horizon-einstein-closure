@@ -100,17 +100,22 @@ positive roots of `rho^3=rho+1` and `Q^4=Q+1`.
 This closes the algebraic final step of the Jacobson route:
 
 ```text
-defined PDT coefficient
-  + assumed quartic KMS/core horizon line
-  -> classified horizon shear
-  -> quadratic graviton null energy
-  -> Raychaudhuri area response
-  + assumed local null Clausius relation
+Optical and scalar-balance branch:
+  assumed quartic KMS/core weight, exchange symmetry, and normalization
+  -> classified affine response and defined optical scalars
+  -> initial-shear flux equals the transverse-area deficit
+  + assumed scalar horizon residual using the defined PDT coefficient
+  -> the defined modular-energy update preserves that residual.
+
+Local tensor branch:
+  separate assumed null Clausius relation using the same defined coefficient
   -> Einstein tensor shape.
 ```
 
-The last implication is now in the Lean kernel rather than being summarized
-in prose.
+The last implication is in the Lean kernel. The optical branch proves the
+defined initial-shear integral and conditional scalar balance; it does not
+derive a physical graviton energy operator or supply the local Clausius
+premise for the tensor branch.
 
 ## Exact scope
 
