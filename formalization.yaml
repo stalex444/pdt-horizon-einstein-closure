@@ -4,9 +4,12 @@ version: v0.4
 project:
   name: From a pQ bulk response and quartic horizon line to local Einstein closure
   description: >-
-    Six compared declarations formalize a conditional package with an
-    optical/horizon branch and a separate Clausius-to-Einstein branch. A
-    Hodge-pair theorem first keeps the rho Q weighted divide distinct
+    Seven compared declarations formalize a conditional package with an
+    exact structural exponent theorem, an optical/horizon branch, and a
+    separate Clausius-to-Einstein branch. The exponent theorem proves
+    dim so(4,2) = 15, surjectivity of the defining sl(15) action at every
+    nonzero vector, stabilizer dimension 209, and
+    dim sl(15) = 224 = 15 + 209. A Hodge-pair theorem then keeps the rho Q weighted divide distinct
     from the normalized quartic response while proving their exact
     orientation-paired products, (rho Q)I and (1-lambda4^2)I. An assumed 1/Q
     exchange-line eigenweight, proposed as the quartic
@@ -23,7 +26,7 @@ project:
     premise, a constructive four-dimensional null-cone rigidity theorem
     produces the Einstein-tensor form. The integrated capstone also retains
     the exact determinant identity for the repository-defined alphaG_PDT with the
-    defined exponent 224, and the irrational independence of the two modular
+    exponent computed as 224, and the irrational independence of the two modular
     clocks. Here rho, also denoted p, enters the bulk factor through
     (rho Q)^224; Q enters both that joint factor and the separate horizon
     determinant. The physical Hodge assignment, KMS-line placement, initial
@@ -44,6 +47,7 @@ classification:
     - math-ph
     - gr-qc
   msc2020:
+    - "17B05"
     - "83C05"
     - "83C47"
     - "81R15"
@@ -252,7 +256,7 @@ related_formalizations:
     note: >-
       Pinned development repository from which the complete transitive Lean
       dependency closure was extracted. This repository adds the integrated
-      horizon-to-Einstein capstone and a new six-result comparison surface.
+      horizon-to-Einstein capstone and a new seven-result comparison surface.
 
 status:
   scope: >-
@@ -265,7 +269,9 @@ status:
     natural units with the repository-defined rho Q coupling, null-cone
     rigidity forces the Einstein-tensor shape. The
     integrated theorem also includes the exact determinant identity for the
-    defined exponent-224 block, the separate Hodge-pair products exposing the
+    exponent-224 block. A separately selected theorem derives
+    224 = dim sl(dim so(4,2)) and its 15 + 209 orbit--stabilizer split. The
+    comparison also includes the separate Hodge-pair products exposing the
     rho Q bulk scalar and quartic screen scalar, and the irrational
     modular-clock relation.
     The cubic root rho (p) enters through every direction of the joint
@@ -273,8 +279,8 @@ status:
     boundary weight and determinant. It does not prove that physical curvature
     assigns rho and Q to the two Hodge chiralities, that an interacting horizon
     carries the proposed 1/Q line, derive the initial horizon residual or
-    Clausius premise from quantum fields, re-formalize the broader PDT
-    derivation selecting 224, construct a global nonlinear spacetime, prove the
+    Clausius premise from quantum fields, prove that the structural dimension
+    224 must be physically assigned as the gravity exponent, construct a global nonlinear spacetime, prove the
     differential Bianchi identity, or validate the coupling against experiment.
     The physical proposal identifies the defined scalar with
     alpha_G = G_N m_e^2/(hbar c); dimensional G_N is recovered only after
@@ -286,6 +292,11 @@ status:
     - Classical.choice
     - Quot.sound
   main_results:
+    - declaration: HorizonEinsteinClosure.gravityExponentFromConformalResponseSpace
+      file: Solution.lean
+      sorry_count: 0
+      axioms: [propext, Classical.choice, Quot.sound]
+      comparator_config: comparator.json
     - declaration: HorizonEinsteinClosure.horizonEinsteinClosure
       file: Solution.lean
       sorry_count: 0
@@ -341,7 +352,7 @@ automation:
         imports only Mathlib. Solution reconstructs the compared declarations
         from independently compiled source modules and direct kernel proofs.
       cost:
-        wall_time: Sessions through 2026-09-08; cumulative elapsed effort not tracked
+        wall_time: Sessions through 2026-09-09; cumulative elapsed effort not tracked
         spend_usd: not tracked
         hardware: local machine
       prompting_notes: >-
@@ -353,7 +364,7 @@ automation:
         corollaries as the main result: one capstone states an integrated
         conditional package with separate optical/horizon and
         Clausius-to-Einstein branches, with five independently compared
-        support theorems. Physical assumptions are named in the theorem
+        support theorems, including the structural exponent theorem. Physical assumptions are named in the theorem
         hypotheses.
   spend_usd: not tracked
   notes: >-
@@ -377,11 +388,12 @@ fidelity:
     model and a scalar horizon residual. The Hodge divide is an exact
     finite-dimensional model of the proposed chiral assignment, not a
     derivation of that assignment from physical curvature. The deposited PDT gravity paper
-    supplies the rho Q coupling proposal, the derivation of exponent 224, and
+    supplies the rho Q coupling proposal, the physical selection of exponent 224, and
     the quartic screening formula. The identification of 1/Q with a physical
     horizon KMS/core line is a later premise developed in this repository and
-    its accompanying note. This artifact takes 224 by definition and does not
-    re-formalize its selection argument. The Jacobson, Faulkner-Speranza, and
+    its accompanying note. This artifact formalizes the Lie-theoretic chain
+    `dim so(4,2)=15`, `dim sl(15)=224=15+209`; it does not prove the physical
+    identification of that dimension as gravity's exponent. The Jacobson, Faulkner-Speranza, and
     Witten sources do not contain the PDT assignments. No global
     curved-spacetime equivalence is claimed.
 
@@ -389,7 +401,9 @@ review:
   status: self-assessed
   reviewers: []
   notes: >-
-    The package was rebuilt from the pinned toolchain. The Solution source has
+    The recovered source was audited on 2026-09-09. Metadata and theorem
+    names were synchronized with the conformal response-space formulation.
+    The Solution source has
     no sorry, admit, or added axiom. The Challenge/Solution types are selected
     by comparator.json. Literature attribution distinguishes the standard
     horizon and null-cone framework from the PDT-specific placement.
@@ -397,6 +411,18 @@ review:
 alignment:
   namespace: HorizonEinsteinClosure
   statements:
+    - source: Structural conformal orbit--stabilizer exponent
+      lean: HorizonEinsteinClosure.gravityExponentFromConformalResponseSpace
+      module: Solution
+      status: proved
+      note: >-
+        Proves the actual Mathlib Lie algebra so'(4,2) has dimension 15,
+        evaluation of trace-free real endomorphisms at any nonzero conformal
+        generator is surjective, its kernel has dimension 209, and
+        rank--nullity yields 224 = 15 + 209. The response exponent is defined
+        as the dimension of this endomorphism space; the theorem computes it
+        as 224 and proves the scalar determinant is scale^224. The final physical assignment
+        of this dimension as gravity's exponent remains the PDT identification.
     - source: Integrated horizon-to-Einstein closure
       lean: HorizonEinsteinClosure.horizonEinsteinClosure
       module: Solution

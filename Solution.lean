@@ -1,4 +1,5 @@
 import GravityScreening.HorizonEinsteinClosureCapstone
+import GravityScreening.StructuralGravityExponent
 
 /-!
 # Solution: from a pQ Hodge divide and quartic horizon line to Einstein closure
@@ -20,7 +21,7 @@ namespace HorizonEinsteinClosure
 
 noncomputable section
 
-open scoped Interval
+open scoped Interval Matrix
 
 def lambda4 (q : ℝ) : ℝ := 1 - 1 / q
 
@@ -126,7 +127,30 @@ def localQuadraticContraction
 def localMinkowskiTrace (M : Matrix (Fin 4) (Fin 4) ℝ) : ℝ :=
   -M 0 0 + M 1 1 + M 2 2 + M 3 3
 
-def gravitationalExponent : ℕ := 224
+/-- The real vector space underlying Mathlib's `so'(4,2)`. -/
+abbrev ConformalGeneratorSpace :=
+  LieAlgebra.Orthogonal.so' (Fin 4) (Fin 2) ℝ
+
+/-- Trace-free endomorphisms of the conformal generator space. -/
+def conformalResponseAlgebra :
+    Submodule ℝ (Module.End ℝ ConformalGeneratorSpace) :=
+  LinearMap.ker (LinearMap.trace ℝ ConformalGeneratorSpace)
+
+/-- Evaluation of a trace-free response at a conformal generator. -/
+def conformalResponseAction (v : ConformalGeneratorSpace) :
+    conformalResponseAlgebra →ₗ[ℝ] ConformalGeneratorSpace where
+  toFun f := f.1 v
+  map_add' f g := by simp
+  map_smul' c f := by simp
+
+/-- The infinitesimal stabilizer of a conformal generator. -/
+def conformalResponseStabilizer (v : ConformalGeneratorSpace) :
+    Submodule ℝ conformalResponseAlgebra :=
+  LinearMap.ker (conformalResponseAction v)
+
+/-- The response exponent, defined as a dimension rather than a numeral. -/
+def gravitationalExponent : ℕ :=
+  Module.finrank ℝ conformalResponseAlgebra
 
 def scalarResponseMatrix (n : ℕ) (scale : ℝ) :
     Matrix (Fin n) (Fin n) ℝ :=
@@ -161,6 +185,48 @@ def hodgeResponse (l : ℝ) : Matrix HodgeSide HodgeSide ℂ :=
 
 def hodgeResponseFlip (l : ℝ) : Matrix HodgeSide HodgeSide ℂ :=
   (1 : Matrix HodgeSide HodgeSide ℂ) - (l : ℂ) • hodgeChirality
+
+/-- The exponent is the dimension of the trace-free endomorphisms of the
+actual real `so'(4,2)` generator space.  Their evaluation action is
+surjective at every nonzero generator and has a 209-dimensional stabilizer. -/
+theorem gravityExponentFromConformalResponseSpace
+    {v : ConformalGeneratorSpace} (hv : v ≠ 0) :
+    Module.finrank ℝ ConformalGeneratorSpace = 15 ∧
+      gravitationalExponent = 224 ∧
+      Function.Surjective (conformalResponseAction v) ∧
+      Module.finrank ℝ (conformalResponseStabilizer v) = 209 ∧
+      gravitationalExponent =
+        Module.finrank ℝ ConformalGeneratorSpace +
+          Module.finrank ℝ (conformalResponseStabilizer v) ∧
+      ∀ scale : ℝ,
+        Matrix.det (scalarResponseMatrix gravitationalExponent scale) =
+          scale ^ 224 := by
+  have hconformal : Module.finrank ℝ ConformalGeneratorSpace = 15 := by
+    exact GravityScreening.finrank_conformalLieAlgebra
+  have hexponent : gravitationalExponent = 224 := by
+    change Module.finrank ℝ GravityScreening.conformalResponseAlgebra = 224
+    exact GravityScreening.finrank_conformalResponseAlgebra
+  have hsurjective : Function.Surjective (conformalResponseAction v) := by
+    change Function.Surjective (GravityScreening.conformalResponseAction v)
+    exact GravityScreening.conformalResponseAction_surjective hv
+  have hstabilizer :
+      Module.finrank ℝ (conformalResponseStabilizer v) = 209 := by
+    change Module.finrank ℝ
+      (GravityScreening.conformalResponseStabilizer v) = 209
+    exact GravityScreening.finrank_conformalResponseStabilizer hv
+  have hsplit : gravitationalExponent =
+      Module.finrank ℝ ConformalGeneratorSpace +
+        Module.finrank ℝ (conformalResponseStabilizer v) := by
+    rw [hexponent, hconformal, hstabilizer]
+  have hdet : ∀ scale : ℝ,
+      Matrix.det (scalarResponseMatrix gravitationalExponent scale) =
+        scale ^ 224 := by
+    intro scale
+    calc
+      Matrix.det (scalarResponseMatrix gravitationalExponent scale) =
+          scale ^ gravitationalExponent := by simp [scalarResponseMatrix]
+      _ = scale ^ 224 := by rw [hexponent]
+  exact ⟨hconformal, hexponent, hsurjective, hstabilizer, hsplit, hdet⟩
 
 /-- The orientation-paired Hodge divide exposes the joint `rho Q` bulk
 scalar, while the distinct normalized quartic response exposes the screen
@@ -479,6 +545,7 @@ theorem horizonEinsteinClosure
 #print axioms HorizonEinsteinClosure.nullConeRigidity4
 #print axioms HorizonEinsteinClosure.nullClausiusForcesLocalEinsteinShape
 #print axioms HorizonEinsteinClosure.horizonEinsteinClosure
+#print axioms HorizonEinsteinClosure.gravityExponentFromConformalResponseSpace
 
 end
 

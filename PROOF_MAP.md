@@ -6,6 +6,7 @@ inputs in the integrated theorem.
 | Stage | Input | Kernel result | Principal Lean declaration | Status |
 |---|---|---|---|---|
 | Algebraic scales | `rho^3=rho+1`, `Q^4=Q+1`, both roots above one | The modular log ratio is irrational; the joint scale is `rho Q` | `rhoQ_modularCompletion_capstone` | proved |
+| Structural exponent | The real conformal generator space `so(4,2)` and evaluation of its trace-free endomorphisms at a nonzero generator | `dim so(4,2)=15`, the action is surjective, the stabilizer has dimension 209, and `dim sl(15)=224=15+209` | `gravityExponentFromConformalResponseSpace` | proved; using this dimension as the gravity exponent is the PDT physical identification |
 | Hodge divide | Conditional assignment of `rho` and `Q` to opposite chiral projectors | Multiplication by the orientation-flipped divide gives exactly `(rho Q)I` | `hodgeDivide_mul_flip` | proved as operator algebra; the curvature interpretation is a physical placement |
 | Hodge screen | Normalized quartic response `I+lambda4 C` on the same Hodge pair | Multiplication by its flip gives `((2Q-1)/Q^2)I` | `hodgeBulkAndQuarticScreen` | proved as a separate operator identity; it is not equated with the divide operator |
 | Coupling determinant | 224-dimensional scalar response and the quartic two-channel block | `1/alphaG_PDT = det((rho Q)I_224) det(K_Q)/pi^4` | `canonicalPerron_fullGravity_determinant` | proved as an exact consequence of the displayed dimensionless coupling definition |

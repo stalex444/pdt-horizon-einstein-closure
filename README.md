@@ -31,7 +31,10 @@ The mathematical contribution is the collection of exact factorization,
 classification, transport, and rigidity consequences that follow from those
 placements.  The physical placements remain explicit, falsifiable PDT
 premises.  The repository contains the complete Lean dependency closure and a
-six-theorem comparison surface for the Palomar Registry.
+seven-theorem comparison surface for the Palomar Registry.  Its structural
+exponent theorem defines the exponent as a dimension and proves the
+chain from the actual dimension of `so(4,2)` to `sl(15)` and its infinitesimal
+orbit--stabilizer decomposition.
 
 The integrated theorem uses the same defined scalar in two displayed premises
 and proves their downstream consequences together.  It does not establish
@@ -51,7 +54,7 @@ It joins, in one kernel-checked statement:
 3. the exact Hodge-pair identities separating the joint `rho Q` bulk scalar
    from the normalized quartic screening scalar;
 4. the exact determinant identity for the repository-defined `alphaG_PDT` and its
-   explicitly defined 224-dimensional scalar response block;
+   scalar response block whose dimension is proved to be 224;
 5. classification of a two-channel horizon response from exchange symmetry,
    unit normalization, and a `1/Q` KMS/core eigenweight;
 6. uniqueness of the full affine optical flow up to shear orientation;
@@ -67,6 +70,23 @@ It joins, in one kernel-checked statement:
 
 ## Why this is a research result
 
+The separate selected theorem
+`gravityExponentFromConformalResponseSpace` works on the trace-free real
+endomorphisms of the actual `so(4,2)` generator space. The response exponent
+is the dimension of those trace-free endomorphisms. Mathlib's concrete real
+Lie algebra `so'(4,2)` has dimension 15. Evaluation at every nonzero real
+conformal generator is surjective, its kernel has dimension 209, and
+rank--nullity gives
+
+```text
+dim sl(dim so(4,2)) = dim sl(15) = 224 = 15 + 209.
+```
+
+Thus the compared surface now verifies the exact Lie-theoretic source of the
+number used by the determinant theorem.  Calling this dimension the gravity
+exponent remains the PDT physical identification; the dimension and the
+orbit--stabilizer calculation do not depend on that interpretation.
+
 The response matrix is not inserted in its final form.  The classification
 theorem begins with an arbitrary real two-channel matrix.  Exchange symmetry,
 unit diagonal mean, and the quartic KMS/core weight `1/Q` on either exchange
@@ -79,6 +99,7 @@ The selected structure is then carried through five mathematical settings:
 
 | Setting | Statement established under the displayed inputs |
 |---|---|
+| Conformal/Lie dimension | `dim so(4,2)=15`, `dim sl(15)=224`, and the defining action at every nonzero vector has a 15-dimensional image and 209-dimensional stabilizer |
 | Lorentzian Hodge pair | The `rho`/`Q` weighted divide times its orientation flip is `(rho Q)I`; a distinct normalized quartic response times its flip is `(1-lambda4^2)I` |
 | Perron/KMS boundary model | The assumed `1/Q` eigenweight, exchange symmetry, and normalization classify the two-channel response up to orientation; `Q^4=Q+1` identifies `lambda4` with the quartic residual |
 | Null optics | An explicit affine null-ray family has transverse map `J_Q(t)`; the defined expansion and shear satisfy the Raychaudhuri-form identity |
@@ -131,7 +152,7 @@ the conversion above.
 | `rho`, the positive root of `x^3-x-1` | Cubic member of the joint bulk scale | Root relation assumed in the capstone; arithmetic foundation already registered |
 | `Q`, the positive root of `x^4-x-1` | Supplies the numerical eigenweight `1/Q`, proposed as the KMS/core line, and the residual `lambda4` | Root relation and boundary placement are explicit hypotheses |
 | `rho Q` | Common scalar response in the bulk determinant | The orientation-paired Hodge divide gives exactly `(rho Q)I`; joint modular identities and the irrational clock relation are also proved |
-| `224 = 15^2-1` | Dimension of the displayed scalar response block | The broader PDT record derives this exponent; this artifact defines it as 224 and proves its equality and determinant consequences without re-formalizing the physical selection argument |
+| `224 = 15^2-1` | Dimension of the displayed scalar response block | Lean proves `dim so(4,2)=15`, surjectivity of the defining `sl(15)` action at every nonzero vector, `dim sl(15)=224`, stabilizer dimension 209, and the rank--nullity split `224=15+209`; its use as the gravitational exponent is the PDT identification |
 | `alphaG_PDT` | `pi^4 / ((rho Q)^224 (1-lambda4^2))` | Defined dimensionless scalar represented by the combined determinant; the physical proposal is `alphaG_PDT = G_N m_e^2/(hbar c)` |
 
 This table is essential to the claim boundary.  Kernel verification proves
@@ -296,7 +317,7 @@ repository-defined coupling
 
 The Lean kernel proves every displayed implication and equality.  The
 substantive source modules and `Solution.lean` contain no `sorry` or `admit`;
-`Challenge.lean` contains exactly six deliberate placeholders, one for each
+`Challenge.lean` contains exactly seven deliberate placeholders, one for each
 theorem checked by Comparator.  The only axioms reported for the proved
 declarations are Mathlib's standard `propext`, `Classical.choice`, and
 `Quot.sound`.
@@ -334,6 +355,7 @@ equations for arbitrary matter.
 
 | Declaration | Content |
 |---|---|
+| `HorizonEinsteinClosure.gravityExponentFromConformalResponseSpace` | Derives `dim so(4,2)=15`, `dim sl(15)=224`, surjectivity at every nonzero vector, stabilizer dimension 209, and the split `224=15+209` |
 | `HorizonEinsteinClosure.horizonEinsteinClosure` | Integrated conditional package: a defined `rho Q` coupling, optical/horizon branch, and separate Clausius-to-Einstein branch |
 | `HorizonEinsteinClosure.hodgeBulkAndQuarticScreen` | Proves parameterized orientation-paired Hodge products `(rho Q)I` for the weighted divide and `((2Q-1)/Q^2)I` for the normalized response; the capstone specializes `rho` and `Q` to the two positive roots |
 | `HorizonEinsteinClosure.kmsBoundarySelectsOpticalFlow` | Classifies the full affine flow up to orientation and proves shear-flux/area equality |
@@ -348,7 +370,7 @@ reconstructs them from the independently compiled source modules.
 
 The cubic and quartic objects already have a public Palomar history.  The
 table distinguishes the intellectual lineage from the premises actually used
-by the six declarations; every theorem in this repository remains
+by the seven declarations; every theorem in this repository remains
 self-contained and imports no external Palomar package.
 
 | Registered result | What it has already established | Exact role here |
@@ -377,7 +399,7 @@ registered algebraic objects and selection context
 
 The separate Padovan time result is registered as
 [PALOMAR-2026-08-19-000006](https://palomar-registry.org/entry.html?id=PALOMAR-2026-08-19-000006&version=1).
-It supplies adjacent PDT context but is not a premise of the six compared
+It supplies adjacent PDT context but is not a premise of the seven compared
 gravity declarations.
 
 ## Build
@@ -391,6 +413,9 @@ lake build
 
 The substantive source files for the new bridge are:
 
+- `GravityScreening/ConformalGeneratorCount.lean`
+- `GravityScreening/PdtStabilizer.lean`
+- `GravityScreening/StructuralGravityExponent.lean`
 - `GravityScreening/PerronOpticalRaychaudhuri.lean`
 - `GravityScreening/KMSOpticalBoundarySelection.lean`
 - `GravityScreening/LocalEinsteinClosure.lean`
