@@ -14,6 +14,15 @@ The conclusions classify the affine screen flow, give a positive-branch
 null-ray realization, prove the Raychaudhuri-form and shear/area identities, preserve
 the assumed residual under a defined update, and derive the local
 Einstein-tensor form.
+## Rendering compatibility
+
+Each selected theorem proves a named proposition containing its complete
+original quantified statement. The proposition is defined immediately before
+the theorem and has no placeholder. Comparator follows and compares its body
+as an ordinary dependency; `definition_names` stays empty. This presentation
+avoids Palomar renderer issue #134 without changing the hypotheses, conclusions,
+derivation of 224, permitted axioms, or proof-verification requirements.
+
 -/
 
 namespace HorizonEinsteinClosure
@@ -178,8 +187,8 @@ def hodgeResponseFlip (l : ℝ) : Matrix HodgeSide HodgeSide ℂ :=
 /-- The exponent is the dimension of the trace-free endomorphisms of the
 actual real `so'(4,2)` generator space.  Their evaluation action is
 surjective at every nonzero generator and has a 209-dimensional stabilizer. -/
-theorem gravityExponentFromConformalResponseSpace
-    {v : ConformalGeneratorSpace} (hv : v ≠ 0) :
+def gravityExponentFromConformalResponseSpaceStatement : Prop :=
+  ∀ {v : ConformalGeneratorSpace} (hv : v ≠ 0),
     Module.finrank ℝ ConformalGeneratorSpace = 15 ∧
       gravitationalExponent = 224 ∧
       Function.Surjective (conformalResponseAction v) ∧
@@ -189,33 +198,72 @@ theorem gravityExponentFromConformalResponseSpace
           Module.finrank ℝ (conformalResponseStabilizer v) ∧
       ∀ scale : ℝ,
         Matrix.det (scalarResponseMatrix gravitationalExponent scale) =
-          scale ^ 224 := by
+          scale ^ 224
+
+/-- Complete statement proved below. The displayed definition is an exact copy
+of the fixed proposition immediately above; Comparator checks its full body.
+
+```lean
+def gravityExponentFromConformalResponseSpaceStatement : Prop :=
+  ∀ {v : ConformalGeneratorSpace} (hv : v ≠ 0),
+    Module.finrank ℝ ConformalGeneratorSpace = 15 ∧
+      gravitationalExponent = 224 ∧
+      Function.Surjective (conformalResponseAction v) ∧
+      Module.finrank ℝ (conformalResponseStabilizer v) = 209 ∧
+      gravitationalExponent =
+        Module.finrank ℝ ConformalGeneratorSpace +
+          Module.finrank ℝ (conformalResponseStabilizer v) ∧
+      ∀ scale : ℝ,
+        Matrix.det (scalarResponseMatrix gravitationalExponent scale) =
+          scale ^ 224
+```
+-/
+theorem gravityExponentFromConformalResponseSpace :
+    gravityExponentFromConformalResponseSpaceStatement := by
   sorry
 
 /-- The orientation-paired Hodge divide exposes the joint `rho Q` bulk
 scalar, while the distinct normalized quartic response exposes the screen
 factor. -/
-theorem hodgeBulkAndQuarticScreen (rho q : ℝ) (hq0 : q ≠ 0) :
+def hodgeBulkAndQuarticScreenStatement : Prop :=
+  ∀ (rho q : ℝ) (hq0 : q ≠ 0),
     hodgeDivide rho q * hodgeDivideFlip rho q =
         ((rho * q : ℝ) : ℂ) •
           (1 : Matrix HodgeSide HodgeSide ℂ) ∧
       hodgeResponse (lambda4 q) * hodgeResponseFlip (lambda4 q) =
         ((((2 * q - 1) / q ^ 2 : ℝ)) : ℂ) •
-          (1 : Matrix HodgeSide HodgeSide ℂ) := by
+          (1 : Matrix HodgeSide HodgeSide ℂ)
+
+/-- Complete statement proved below. The displayed definition is an exact copy
+of the fixed proposition immediately above; Comparator checks its full body.
+
+```lean
+def hodgeBulkAndQuarticScreenStatement : Prop :=
+  ∀ (rho q : ℝ) (hq0 : q ≠ 0),
+    hodgeDivide rho q * hodgeDivideFlip rho q =
+        ((rho * q : ℝ) : ℂ) •
+          (1 : Matrix HodgeSide HodgeSide ℂ) ∧
+      hodgeResponse (lambda4 q) * hodgeResponseFlip (lambda4 q) =
+        ((((2 * q - 1) / q ^ 2 : ℝ)) : ℂ) •
+          (1 : Matrix HodgeSide HodgeSide ℂ)
+```
+-/
+theorem hodgeBulkAndQuarticScreen :
+    hodgeBulkAndQuarticScreenStatement := by
   sorry
 
 /-- The quartic KMS boundary conditions classify the complete affine optical
 flow up to orientation and identify its boost-weighted shear flux with its
 missing endpoint area. -/
-theorem kmsBoundarySelectsOpticalFlow
-    (M : Matrix (Fin 2) (Fin 2) ℝ)
+def kmsBoundarySelectsOpticalFlowStatement : Prop :=
+  ∀ (M : Matrix (Fin 2) (Fin 2) ℝ)
     (q charge K inverseG area : ℝ)
     (hq4 : q ^ 4 = q + 1) (hq1 : 1 < q)
     (hG : inverseG ≠ 0)
     (hexchange : IsChannelExchangeSymmetric M)
     (hmean : HasUnitDiagonalMean M)
     (hcore : HasUnorientedCoreWeight M q)
-    (hconstraint : horizonConstraintResidual charge K inverseG area = 0) :
+    (hconstraint : horizonConstraintResidual charge K inverseG area = 0),
     ((∀ t, affineScreenFlow M t = opticalJacobi (lambda4 q) t) ∨
       (∀ t, affineScreenFlow M t = opticalJacobi (-lambda4 q) t)) ∧
       Matrix.det M = screening (lambda4 q) ∧
@@ -225,16 +273,44 @@ theorem kmsBoundarySelectsOpticalFlow
       opticalExpansion (lambda4 q) 0 = 0 ∧
       horizonConstraintResidual charge
           (K + opticalModularEnergyIncrement inverseG area (lambda4 q))
-          inverseG (Matrix.det M * area) = 0 := by
+          inverseG (Matrix.det M * area) = 0
+
+/-- Complete statement proved below. The displayed definition is an exact copy
+of the fixed proposition immediately above; Comparator checks its full body.
+
+```lean
+def kmsBoundarySelectsOpticalFlowStatement : Prop :=
+  ∀ (M : Matrix (Fin 2) (Fin 2) ℝ)
+    (q charge K inverseG area : ℝ)
+    (hq4 : q ^ 4 = q + 1) (hq1 : 1 < q)
+    (hG : inverseG ≠ 0)
+    (hexchange : IsChannelExchangeSymmetric M)
+    (hmean : HasUnitDiagonalMean M)
+    (hcore : HasUnorientedCoreWeight M q)
+    (hconstraint : horizonConstraintResidual charge K inverseG area = 0),
+    ((∀ t, affineScreenFlow M t = opticalJacobi (lambda4 q) t) ∨
+      (∀ t, affineScreenFlow M t = opticalJacobi (-lambda4 q) t)) ∧
+      Matrix.det M = screening (lambda4 q) ∧
+      0 < Matrix.det M ∧
+      unitBoostWeightedInitialShearFlux (lambda4 q) = lambda4 q ^ 2 ∧
+      unitBoostWeightedInitialShearFlux (lambda4 q) = 1 - Matrix.det M ∧
+      opticalExpansion (lambda4 q) 0 = 0 ∧
+      horizonConstraintResidual charge
+          (K + opticalModularEnergyIncrement inverseG area (lambda4 q))
+          inverseG (Matrix.det M * area) = 0
+```
+-/
+theorem kmsBoundarySelectsOpticalFlow :
+    kmsBoundarySelectsOpticalFlowStatement := by
   sorry
 
 /-- The positive-orientation quartic screen flow is the transverse map of an explicit
 affine null-ray family, and its defined optical scalars satisfy the exact
 identity having the twist-free vacuum Raychaudhuri form throughout one affine
 unit. -/
-theorem quarticNullCongruenceRaychaudhuri
-    (q u : ℝ) (screenLabel : Fin 2 → ℝ)
-    (hq1 : 1 < q) (hu0 : 0 ≤ u) (hu1 : u ≤ 1) :
+def quarticNullCongruenceRaychaudhuriStatement : Prop :=
+  ∀ (q u : ℝ) (screenLabel : Fin 2 → ℝ)
+    (hq1 : 1 < q) (hu0 : 0 ≤ u) (hu1 : u ≤ 1),
     doubleNullMinkowskiSq (nullTangent (lambda4 q) screenLabel) = 0 ∧
       (nullGeodesic (lambda4 q) screenLabel u 2 =
           (opticalJacobi (lambda4 q) u).mulVec screenLabel 0 ∧
@@ -244,39 +320,95 @@ theorem quarticNullCongruenceRaychaudhuri
         (opticalExpansionRate (lambda4 q) u) u ∧
       opticalExpansionRate (lambda4 q) u =
         -(opticalExpansion (lambda4 q) u) ^ 2 / 2 -
-          opticalShearSq (lambda4 q) u := by
+          opticalShearSq (lambda4 q) u
+
+/-- Complete statement proved below. The displayed definition is an exact copy
+of the fixed proposition immediately above; Comparator checks its full body.
+
+```lean
+def quarticNullCongruenceRaychaudhuriStatement : Prop :=
+  ∀ (q u : ℝ) (screenLabel : Fin 2 → ℝ)
+    (hq1 : 1 < q) (hu0 : 0 ≤ u) (hu1 : u ≤ 1),
+    doubleNullMinkowskiSq (nullTangent (lambda4 q) screenLabel) = 0 ∧
+      (nullGeodesic (lambda4 q) screenLabel u 2 =
+          (opticalJacobi (lambda4 q) u).mulVec screenLabel 0 ∧
+        nullGeodesic (lambda4 q) screenLabel u 3 =
+          (opticalJacobi (lambda4 q) u).mulVec screenLabel 1) ∧
+      HasDerivAt (opticalExpansion (lambda4 q))
+        (opticalExpansionRate (lambda4 q) u) u ∧
+      opticalExpansionRate (lambda4 q) u =
+        -(opticalExpansion (lambda4 q) u) ^ 2 / 2 -
+          opticalShearSq (lambda4 q) u
+```
+-/
+theorem quarticNullCongruenceRaychaudhuri :
+    quarticNullCongruenceRaychaudhuriStatement := by
   sorry
 
 /-- Four-dimensional null-cone rigidity: a symmetric bilinear form whose
 quadratic contraction vanishes on every Minkowski-null vector is a scalar
 multiple of the metric. -/
-theorem nullConeRigidity4
-    (M : Matrix (Fin 4) (Fin 4) ℝ)
+def nullConeRigidity4Statement : Prop :=
+  ∀ (M : Matrix (Fin 4) (Fin 4) ℝ)
     (hsym : M.transpose = M)
     (hnull : ∀ v : Fin 4 → ℝ,
-      localMinkowskiSq v = 0 → localQuadraticContraction M v = 0) :
-    ∃ c : ℝ, M = c • localMinkowskiMetric := by
+      localMinkowskiSq v = 0 → localQuadraticContraction M v = 0),
+    ∃ c : ℝ, M = c • localMinkowskiMetric
+
+/-- Complete statement proved below. The displayed definition is an exact copy
+of the fixed proposition immediately above; Comparator checks its full body.
+
+```lean
+def nullConeRigidity4Statement : Prop :=
+  ∀ (M : Matrix (Fin 4) (Fin 4) ℝ)
+    (hsym : M.transpose = M)
+    (hnull : ∀ v : Fin 4 → ℝ,
+      localMinkowskiSq v = 0 → localQuadraticContraction M v = 0),
+    ∃ c : ℝ, M = c • localMinkowskiMetric
+```
+-/
+theorem nullConeRigidity4 :
+    nullConeRigidity4Statement := by
   sorry
 
 /-- The pointwise algebraic final step of Jacobson's argument. -/
-theorem nullClausiusForcesLocalEinsteinShape
-    (ricci stress : Matrix (Fin 4) (Fin 4) ℝ) (kappa : ℝ)
+def nullClausiusForcesLocalEinsteinShapeStatement : Prop :=
+  ∀ (ricci stress : Matrix (Fin 4) (Fin 4) ℝ) (kappa : ℝ)
     (hricci : ricci.transpose = ricci)
     (hstress : stress.transpose = stress)
     (hnull : ∀ v : Fin 4 → ℝ,
       localMinkowskiSq v = 0 →
-        localQuadraticContraction (ricci - kappa • stress) v = 0) :
+        localQuadraticContraction (ricci - kappa • stress) v = 0),
     ∃ cosmological : ℝ,
       ricci - (localMinkowskiTrace ricci / 2) • localMinkowskiMetric +
-          cosmological • localMinkowskiMetric = kappa • stress := by
+          cosmological • localMinkowskiMetric = kappa • stress
+
+/-- Complete statement proved below. The displayed definition is an exact copy
+of the fixed proposition immediately above; Comparator checks its full body.
+
+```lean
+def nullClausiusForcesLocalEinsteinShapeStatement : Prop :=
+  ∀ (ricci stress : Matrix (Fin 4) (Fin 4) ℝ) (kappa : ℝ)
+    (hricci : ricci.transpose = ricci)
+    (hstress : stress.transpose = stress)
+    (hnull : ∀ v : Fin 4 → ℝ,
+      localMinkowskiSq v = 0 →
+        localQuadraticContraction (ricci - kappa • stress) v = 0),
+    ∃ cosmological : ℝ,
+      ricci - (localMinkowskiTrace ricci / 2) • localMinkowskiMetric +
+          cosmological • localMinkowskiMetric = kappa • stress
+```
+-/
+theorem nullClausiusForcesLocalEinsteinShape :
+    nullClausiusForcesLocalEinsteinShapeStatement := by
   sorry
 
 /-- Integrated conditional horizon-to-Einstein result.  The conclusion retains
 the determinant identity for the defined dimensionless rho Q coupling, the classified
 optical model, the conditional horizon balance, and the local Einstein-tensor
 form in one compared declaration. -/
-theorem horizonEinsteinClosure
-    (M : Matrix (Fin 2) (Fin 2) ℝ)
+def horizonEinsteinClosureStatement : Prop :=
+  ∀ (M : Matrix (Fin 2) (Fin 2) ℝ)
     (ricci stress : Matrix (Fin 4) (Fin 4) ℝ)
     (rho q u charge K area : ℝ)
     (screenLabel : Fin 2 → ℝ)
@@ -294,7 +426,7 @@ theorem horizonEinsteinClosure
       localMinkowskiSq v = 0 →
         localQuadraticContraction
           (ricci - (8 * Real.pi * gravitationalCoupling rho q) • stress)
-          v = 0) :
+          v = 0),
     ((∀ t, affineScreenFlow M t = opticalJacobi (lambda4 q) t) ∨
       (∀ t, affineScreenFlow M t = opticalJacobi (-lambda4 q) t)) ∧
       Matrix.det M = screening (lambda4 q) ∧
@@ -331,7 +463,73 @@ theorem horizonEinsteinClosure
         (Matrix.det
             (scalarResponseMatrix gravitationalExponent (rho * q)) *
           Matrix.det (constitutiveBlock (lambda4 q))) /
-          Real.pi ^ 4 := by
+          Real.pi ^ 4
+
+/-- Complete statement proved below. The displayed definition is an exact copy
+of the fixed proposition immediately above; Comparator checks its full body.
+
+```lean
+def horizonEinsteinClosureStatement : Prop :=
+  ∀ (M : Matrix (Fin 2) (Fin 2) ℝ)
+    (ricci stress : Matrix (Fin 4) (Fin 4) ℝ)
+    (rho q u charge K area : ℝ)
+    (screenLabel : Fin 2 → ℝ)
+    (hrho3 : rho ^ 3 = rho + 1) (hrho1 : 1 < rho)
+    (hq4 : q ^ 4 = q + 1) (hq1 : 1 < q)
+    (hu0 : 0 ≤ u) (hu1 : u ≤ 1)
+    (hexchange : IsChannelExchangeSymmetric M)
+    (hmean : HasUnitDiagonalMean M)
+    (hcore : HasUnorientedCoreWeight M q)
+    (hconstraint : horizonConstraintResidual charge K
+      (1 / gravitationalCoupling rho q) area = 0)
+    (hricci : ricci.transpose = ricci)
+    (hstress : stress.transpose = stress)
+    (hnull : ∀ v : Fin 4 → ℝ,
+      localMinkowskiSq v = 0 →
+        localQuadraticContraction
+          (ricci - (8 * Real.pi * gravitationalCoupling rho q) • stress)
+          v = 0),
+    ((∀ t, affineScreenFlow M t = opticalJacobi (lambda4 q) t) ∨
+      (∀ t, affineScreenFlow M t = opticalJacobi (-lambda4 q) t)) ∧
+      Matrix.det M = screening (lambda4 q) ∧
+      unitBoostWeightedInitialShearFlux (lambda4 q) = lambda4 q ^ 2 ∧
+      unitBoostWeightedInitialShearFlux (lambda4 q) = 1 - Matrix.det M ∧
+      doubleNullMinkowskiSq
+          (nullTangent (lambda4 q) screenLabel) = 0 ∧
+      (nullGeodesic (lambda4 q) screenLabel u 2 =
+          (opticalJacobi (lambda4 q) u).mulVec screenLabel 0 ∧
+        nullGeodesic (lambda4 q) screenLabel u 3 =
+          (opticalJacobi (lambda4 q) u).mulVec screenLabel 1) ∧
+      HasDerivAt (opticalExpansion (lambda4 q))
+        (opticalExpansionRate (lambda4 q) u) u ∧
+      opticalExpansionRate (lambda4 q) u =
+        -(opticalExpansion (lambda4 q) u) ^ 2 / 2 -
+          opticalShearSq (lambda4 q) u ∧
+      horizonConstraintResidual charge
+          (K + opticalModularEnergyIncrement
+            (1 / gravitationalCoupling rho q) area (lambda4 q))
+          (1 / gravitationalCoupling rho q)
+          (Matrix.det M * area) = 0 ∧
+      (hodgeDivide rho q * hodgeDivideFlip rho q =
+          ((rho * q : ℝ) : ℂ) •
+            (1 : Matrix HodgeSide HodgeSide ℂ) ∧
+        hodgeResponse (lambda4 q) * hodgeResponseFlip (lambda4 q) =
+          ((((2 * q - 1) / q ^ 2 : ℝ)) : ℂ) •
+            (1 : Matrix HodgeSide HodgeSide ℂ)) ∧
+      Irrational (Real.log rho / Real.log q) ∧
+      (∃ cosmological : ℝ,
+        ricci - (localMinkowskiTrace ricci / 2) • localMinkowskiMetric +
+            cosmological • localMinkowskiMetric =
+          (8 * Real.pi * gravitationalCoupling rho q) • stress) ∧
+      1 / gravitationalCoupling rho q =
+        (Matrix.det
+            (scalarResponseMatrix gravitationalExponent (rho * q)) *
+          Matrix.det (constitutiveBlock (lambda4 q))) /
+          Real.pi ^ 4
+```
+-/
+theorem horizonEinsteinClosure :
+    horizonEinsteinClosureStatement := by
   sorry
 
 end

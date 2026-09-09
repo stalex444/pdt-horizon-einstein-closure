@@ -374,6 +374,15 @@ equations for arbitrary matter.
 `Challenge.lean` states these results using only Mathlib. `Solution.lean`
 reconstructs them from the independently compiled source modules.
 
+To work around [Palomar renderer issue #134](https://github.com/PalomarRegistry/PalomarSubmission/issues/134),
+each selected theorem now proves an explicitly named proposition containing
+its complete original quantified statement. The full definition appears
+immediately above the theorem and is repeated exactly in its reviewer-visible
+documentation. Comparator checks each proposition's full body as a fixed
+dependency; `definition_names` remains empty. The structural derivation of
+224, hypotheses, conclusions, and permitted axioms are preserved. See
+[rendering compatibility](RENDER_COMPATIBILITY.md) for the checks and limits.
+
 ## Registered Palomar lineage
 
 The cubic and quartic objects already have a public Palomar history.  The

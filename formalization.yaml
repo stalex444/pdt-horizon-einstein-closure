@@ -411,6 +411,13 @@ review:
     Palomar statement alignment; their findings and documentation corrections
     are recorded in PRE_SUBMISSION_REVIEW.md. This was not human peer review
     or official Palomar verification.
+    A subsequent rendering compatibility redraft factors each original
+    quantified statement into a fixed named proposition. Comparator's
+    definition_names remains empty, so the proposition bodies are ordinary
+    checked dependencies. Exact full-statement copies are included in the
+    theorem documentation for Palomar's partial declaration view and checked
+    by scripts/check_render_statements.py. The original proof types are
+    preserved; see RENDER_COMPATIBILITY.md for validation and limitations.
 
 alignment:
   namespace: HorizonEinsteinClosure
