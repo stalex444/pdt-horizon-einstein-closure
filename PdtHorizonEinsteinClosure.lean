@@ -2,6 +2,7 @@ import ResponseClosureOrthogonalBasis
 import GravityScreening.HodgeLieGeneration
 import GravityScreening.AdjointResponseUniqueness
 import GravityScreening.GeometricResponseRigidity
+import GravityScreening.HodgeModeCalibration
 import GravityScreening.PdtOpticalRepair
 import GravityScreening.TwoSidedTraceFree
 import ResponseClosureGeometry

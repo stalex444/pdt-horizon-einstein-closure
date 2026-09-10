@@ -14,12 +14,14 @@ to be scalar. The companion statements repair or constrain the interpretation.
 | `GravityScreening.HodgeResponseCovariance` | Covariance under the sixteen actual generators is equivalent to full adjoint covariance on the 224-dimensional algebra. |
 | `GravityScreening.TraceFreeResponseUniqueness` | Direct matrix-unit scalar-centroid theorem, determinant exponent and one-mode calibration, with no simplicity assumption. |
 | `GravityScreening.GeometricResponseRigidity` | Composes generation/covariance and scalarity; proves the calibrated `(rho Q)^224` determinant under one nonzero-mode calibration. |
+| `GravityScreening.HodgeModeCalibration` | Actual nonzero Hodge witness, cubic identity and `DHE=(rho Q)H`; explicit same-mode matching calibrates the real 224-dimensional response and determinant. Supporting result, not a separate Comparator selection. |
 | `GravityScreening.AdjointResponseUniqueness` | Supporting interface from Mathlib's simple-adjoint irreducibility to the usual Schur exponent theorem; the direct matrix-unit proof does not depend on it. |
 | `GravityScreening.PdtOpticalRepair` | Actual affine and label derivatives, nullness and screen orthogonality, positive pullback pairing, intrinsic metric evolution, full finite-cut energy balance. |
 | `GravityScreening.TwoSidedTraceFree` | Necessary and sufficient scalar-product condition for a two-sided response; explicit diagonal-difference obstruction witnesses. |
 
-`Solution.lean` connects the four displayed Challenge statements to these
-modules. The current selected names are given by `comparator.json`.
+`Solution.lean` connects the four displayed Challenge statements to their
+proof dependencies. The current selected names are given by `comparator.json`;
+the root library also exports supporting results beyond these selections.
 
 The older PDT modules retain the root arithmetic, KMS selection premises,
 Hodge pair, doubled quadratic action, Gaussian integrals and conditional

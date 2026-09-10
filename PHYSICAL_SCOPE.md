@@ -68,6 +68,30 @@ algebraic product, but its choice and physical meaning would be additional
 input. Over the reals there is no full fifteen-dimensional complex structure:
 `J^2=-I` would imply `(det J)^2=-1`.
 
+There is a more economical local calibration route. The actual Hodge matrix
+also satisfies `PH=HP=H`, so the same factors obey
+
+```text
+D H E = (a^2-b^2) H = (rho Q) H.
+```
+
+Here H itself is a canonical nonzero trace-free element of the response
+algebra. Thus it suffices to match the same physical response on this one
+element, `R(H)=DHE`; the generator-covariance theorem then fixes the entire
+response and its determinant. This calculation needs no chirality choice
+on the complement. It does not assert that `R(T)=DTE` for every T, which
+would fail the trace-preservation test. The factors already contain rho and
+Q, and the physical same-response matching remains explicit. The identity
+therefore reduces the transport requirement, rather than independently
+selecting the calibration scale.
+
+This route is proved in `HodgeModeCalibration.lean`. In particular,
+`real_geometric_hodge_calibrated_determinant` keeps R real-linear on
+`sl(15,R)` and takes its determinant over the reals, in dimension 224.
+Only the one-mode comparison is complexified entrywise to use the chiral
+factors; injectivity of that scalar inclusion recovers the real calibration.
+No identification of complex dimension 224 with real dimension 224 is used.
+
 There is a broader sufficient construction. For invertible factors with
 `DE=rI`, the two-sided map is `T ↦ r D T D^-1`. Over characteristic zero,
 conjugation has determinant one on `sl15`, so this map has determinant
@@ -76,6 +100,34 @@ ordinary mathematical reasoning in this note; the selected Lean theorem
 checks the trace-preservation criterion. An application must identify the
 physical factors and match their product to the PDT calibration `r=rho Q`
 on this response space.
+
+## Covariance and positive physical modes
+
+Hodge covariance is an additional condition with concrete content. Write
+`q_biv=diag(eta_a eta_b)` in the displayed bivector basis and set
+`tau(T)=q_biv T^transpose q_biv`. This nonscalar involution preserves `sl15`
+and commutes with the commutator action of every original orthogonal adjoint
+generator. Those generators are q_biv-skew; H is q_biv-self-adjoint. On
+`T=E00-E99`, the Hodge covariance defect is
+`tau([H,T])-[H,tau(T)]=-4(E09+E90)`. Thus the orthogonal covariance conditions
+alone do not imply the Hodge condition. Even `R=2I+tau` is positive and
+self-adjoint for the ordinary real Frobenius pairing, with eigenvalues one
+and three, while remaining nonscalar and satisfying the original fifteen
+covariance conditions. These are elementary matrix consequences, not
+additional selected Lean theorems.
+
+A distinct issue arises if these transformations are interpreted as exact
+symmetries of a positive quadratic action on all 224 directions. No positive
+definite real bilinear form B on `sl(15,R)` can be invariant under all sixteen
+adjoint actions. Invariance propagates through their Lie closure. Taking
+`D=E00-E11` and `X=E01` gives `[D,X]=2X`, and hence
+`0=B([D,X],X)+B(X,[D,X])=4 B(X,X)`, a contradiction. This ordinary algebraic
+obstruction does not contradict scalar-response covariance. It requires
+that an application distinguish an intertwining law for R from invariance
+of a physical action or state. An indefinite covariant field description,
+or a separate constrained physical space, is not excluded by this argument.
+In particular, the positive TT Gaussian cannot be promoted to 224 positive
+invariant modes solely by the generated dimension.
 
 ## Existing action and Gaussian results
 

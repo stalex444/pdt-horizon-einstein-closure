@@ -60,6 +60,17 @@ under the same generator-covariance conditions. The two factors rho and Q
 are arbitrary supplied scalars in this theorem. Their arithmetic selection
 and physical interpretation belong to the PDT foundations.
 
+There is now a distinguished calibration witness. The actual nonzero Hodge
+generator H has `H^3=-H`. With the complex local chiral factors
+`D=aI+b(-iH)` and `E=aI-b(-iH)`, where
+`a=(rho+Q)/2` and `b=(rho-Q)/2`, the supporting proof gives
+`DHE=(rho Q)H`. Its real-response wrapper assumes that the entrywise
+complexification of the same `R(H)` agrees with this product, then concludes
+`R=(rho Q)I` and the real determinant `(rho Q)^224`. This requires matching
+one canonical mode, without extending `T->DTE` to all trace-free T.
+The agreement is still an explicit physical identification; the factors
+already encode the supplied arithmetic weights.
+
 R acts on the **224-dimensional algebra**, while s is a **15-by-15 matrix**
 whose commutator acts on that algebra. These roles differ. A nonzero scalar acting
 on the natural 15-dimensional space induces the identity by conjugation;
@@ -81,6 +92,8 @@ result in an action or entropy calculation.
 - `GravityScreening/TraceFreeResponseUniqueness.lean` proves the direct
   scalar-centroid theorem, the determinant and one-mode calibration.
 - `GravityScreening/GeometricResponseRigidity.lean` composes those results.
+- `GravityScreening/HodgeModeCalibration.lean` proves the actual Hodge-mode
+  identity and its calibration consequence for both complex and real responses.
 - `GravityScreening/AdjointResponseUniqueness.lean` separately supplies the
   ordinary simple-adjoint/Schur interface; the direct theorem does not
   depend on it.

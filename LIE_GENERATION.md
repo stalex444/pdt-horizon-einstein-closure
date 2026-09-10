@@ -106,8 +106,8 @@ identities and uniform field statement provide the proposed contribution.
 Whether this particular application merits a research note is an editorial
 judgment. No exhaustive priority claim or human peer review is asserted.
 
-Relevant primary literature includes the distinction between associative
-density and Lie generation in [Altafini's control analysis](https://arxiv.org/abs/quant-ph/0211194),
+Relevant primary literature includes Lie closure of adjoint controls with an
+added dissipative superoperator in [Altafini's control analysis](https://arxiv.org/abs/quant-ph/0211194),
 the proper-overgroup setting in [Garibaldi and Guralnick](https://arxiv.org/abs/1309.6611),
 and the exceptional orthogonal/exterior-power geometry discussed by
 [Bradlow and Schaposnik](https://arxiv.org/abs/1508.02650).

@@ -18,8 +18,11 @@ on this 224-dimensional algebra that commutes with the commutator action of
 each of the sixteen generators must be `c I`, with determinant `c^224`.
 The proof uses matrix units directly and works in every characteristic
 except two, including characteristics three and five where `sl15` is not
-simple. A supporting theorem shows that one nonzero-mode calibration fixes
-c. See [RESPONSE_UNIQUENESS.md](RESPONSE_UNIQUENESS.md).
+simple. Supporting theorems show that one nonzero-mode calibration fixes c,
+and provide the actual Hodge generator as a canonical witness: matching the
+same response on that mode to its divide/flip product fixes `c=rho Q`.
+The physical matching and covariance are explicit premises. See
+[RESPONSE_UNIQUENESS.md](RESPONSE_UNIQUENESS.md).
 
 The mathematical proof and its relation to known representation theory are
 in [LIE_GENERATION.md](LIE_GENERATION.md). Its proposed contribution is an
