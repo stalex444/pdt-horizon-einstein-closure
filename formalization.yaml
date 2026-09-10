@@ -1,501 +1,258 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json
 version: v0.4
-
 project:
-  name: From a pQ bulk response and quartic horizon line to local Einstein closure
-  description: >-
-    Seven compared declarations formalize a conditional package with an
-    exact structural exponent theorem, an optical/horizon branch, and a
-    separate Clausius-to-Einstein branch. The exponent theorem proves
-    dim so(4,2) = 15, surjectivity of the defining sl(15) action at every
-    nonzero vector, stabilizer dimension 209, and
-    dim sl(15) = 224 = 15 + 209. A Hodge-pair theorem then keeps the rho Q weighted divide distinct
-    from the normalized quartic response while proving their exact
-    orientation-paired products, (rho Q)I and (1-lambda4^2)I. An assumed 1/Q
-    exchange-line eigenweight, proposed as the quartic
-    KMS/core line, together with exchange symmetry and unit normalization,
-    classifies an arbitrary two-channel boundary response and its entire
-    affine screen flow into one of two global orientation branches. The
-    positive branch is the transverse map of explicit affine null rays in
-    flat double-null coordinates; its defined expansion and shear satisfy an
-    exact identity having the twist-free vacuum Raychaudhuri form. The two
-    orientations have the same scalar determinant and shear-square data, and
-    the normalized boost-weighted shear flux equals the missing endpoint
-    area. A defined modular-energy increment preserves an
-    assumed scalar horizon residual. Given the separate local null Clausius
-    premise, a constructive four-dimensional null-cone rigidity theorem
-    produces the Einstein-tensor form. The integrated capstone also retains
-    the exact determinant identity for the repository-defined alphaG_PDT with the
-    exponent computed as 224, and the irrational independence of the two modular
-    clocks. Here rho, also denoted p, enters the bulk factor through
-    (rho Q)^224; Q enters both that joint factor and the separate horizon
-    determinant. The physical Hodge assignment, KMS-line placement, initial
-    horizon residual, dimensionless Clausius premise with alphaG_PDT, and
-    empirical identification alphaG_PDT = G_N m_e^2/(hbar c) are not claimed
-    consequences of the finite algebra.
+  name: Hodge-generated response algebras and finite-cut optical balance
+  description: The principal result proves that the fifteen adjoint basis actions of the orthogonal
+    algebra for diag(1,1,1,-1,1,-1), together with the Hodge operation on the oriented four-plane0123
+    extended by zero, generate every trace-free15-by15 matrix. The theorem holds over every field
+    with two nonzero and derives the dimension224 from that closure. An integral finite certificate
+    is combined with a general matrix-unit propagation proof and geometric definitions calculated
+    from6-by6 brackets. Companion results establish an orthogonal affine null family from a quadratic
+    initial cut, exact finite-cut optical energy balance with endpoint expansion, and the necessary
+    and sufficient scalar-product condition for a two-sided response to preserve trace zero. The
+    selected contribution is a constructive Lie-generation theorem; physical operator selection,
+    the scalar response magnitude, entropy coefficient and Newton coupling remain separate questions.
   authors:
-    - Stephanie Alexander
+  - Stephanie Alexander
   license: MIT
   responsible_maintainers:
-    - Stephanie Alexander
-
+  - Stephanie Alexander
 repository:
   role: substantive-development
-
 classification:
   arxiv:
-    - math-ph
-    - gr-qc
+  - math.RT
+  - math-ph
+  - gr-qc
   msc2020:
-    - "17B05"
-    - "83C05"
-    - "83C47"
-    - "81R15"
-
+  - 17B05
+  - 17B10
+  - 83C05
+  - 68V20
 sources:
-  - title: "Deriving Gravity from First Principles: The Dimensional Origin of Newton's Constant"
-    authors:
-      - Stephanie Alexander
-    id: DOI:10.5281/zenodo.20417378
-    type: article
-    location: https://doi.org/10.5281/zenodo.20417378
-    relationship: formalizes
-    author_endorsement: participated
-    note: >-
-      Source for the PDT proposal of the joint rho Q bulk response and
-      quartic physical screening, the PDT derivation of exponent 224, and the
-      numerical comparison with the dimensionless gravitational coupling
-      alpha_G = G_N m_e^2/(hbar c), from which dimensional G_N is recovered
-      by restoring units. The present repository
-      formalizes exact conditional consequences of the displayed coupling and
-      horizon model; it does not turn the paper's physical identification or
-      numerical comparison into a kernel theorem.
-  - title: "Thermodynamics of Spacetime: The Einstein Equation of State"
-    authors:
-      - Ted Jacobson
-    id: DOI:10.1103/PhysRevLett.75.1260
-    type: article
-    location: https://arxiv.org/abs/gr-qc/9504004
-    relationship: formalizes
-    author_endorsement: not-contacted
-    note: >-
-      Source for the local horizon Clausius argument and the null-contracted
-      Ricci-versus-stress relation. The compared null-cone theorem formalizes
-      the pointwise algebraic step from that contraction to the Einstein
-      tensor. This repository assumes the local Clausius contraction and does
-      not claim to re-formalize Jacobson's quantum-field-theoretic premises.
-  - title: The Standard Model
-    authors:
-      - CERN
-    type: web post
-    location: https://home.cern/science/physics/standard-model/
-    relationship: background
-    author_endorsement: n/a
-    note: >-
-      Authoritative background for the limited comparison that gravity is not
-      part of the Standard Model. It supplies no PDT assignment.
-  - title: Experimental Tests of Gravitational Theory
-    authors:
-      - T. Damour
-    type: review article
-    location: https://pdg.lbl.gov/2023/reviews/rpp2023-rev-gravity-tests.pdf
-    relationship: background
-    author_endorsement: not-contacted
-    note: >-
-      Source for the standard general-relativistic action and field equation
-      containing Newton's constant as the gravitational coupling.
-  - title: "CODATA recommended values of the fundamental physical constants: 2022"
-    authors:
-      - Peter J. Mohr
-      - David B. Newell
-      - Barry N. Taylor
-      - Eite Tiesinga
-    id: DOI:10.1063/5.0279860
-    type: article
-    location: https://doi.org/10.1063/5.0279860
-    relationship: background
-    author_endorsement: not-contacted
-    note: >-
-      Metrology source for the experimental measurements and recommended value
-      of G_N. It is used only to support the comparison between an empirical
-      coupling and the proposed arithmetic alphaG_PDT.
-  - title: KMS states on the C*-algebras of finite graphs
-    authors:
-      - Astrid an Huef
-      - Marcelo Laca
-      - Iain Raeburn
-      - Aidan Sims
-    type: article
-    location: https://arxiv.org/abs/1205.2194
-    relationship: adapts
-    author_endorsement: not-contacted
-    note: >-
-      Source for the finite strongly connected graph KMS theorem at the
-      critical Perron inverse temperature. The repository formalizes finite
-      cubic and quartic Perron/KMS data in its development closure. That
-      theorem does not choose Q rather than rho as a physical horizon line;
-      the quartic placement remains an explicit PDT premise.
-  - title: Gravitational algebras and the generalized second law
-    authors:
-      - Thomas Faulkner
-      - Antony J. Speranza
-    type: article
-    location: https://arxiv.org/abs/2405.00847
-    relationship: adapts
-    author_endorsement: not-contacted
-    note: >-
-      Source for the modern horizon-cut crossed-product setting, the
-      one-sided modular-Hamiltonian/area relation, and the quadratic shear
-      contribution to gravitational null energy. The formalization adapts
-      those structures to an explicit finite optical flow. The source does
-      not select the quartic number Q or the PDT boundary placement.
-  - title: Gravity and the Crossed Product
-    authors:
-      - Edward Witten
-    type: article
-    location: https://arxiv.org/abs/2112.12828
-    relationship: background
-    author_endorsement: not-contacted
-    note: >-
-      Background for the modular crossed product, the gravitational
-      type-II algebra, its trace, and generalized-entropy interpretation.
-      No claim is made that this source contains the finite quartic model.
-  - title: PDT horizon-to-Einstein closure proof map
-    authors:
-      - Stephanie Alexander
-    type: research note
-    location: PROOF_MAP.md
-    relationship: formalizes
-    author_endorsement: participated
-    note: >-
-      Gives the exact theorem dependency table, separates kernel implications
-      from physical and model inputs, and states falsifiers for the
-      principal physical placements. This is a source-to-code record and makes
-      no independent literature-priority claim.
-  - title: The Hodge bulk and screen products
-    authors:
-      - Stephanie Alexander
-    type: research note
-    location: HODGE_BULK_SCREEN.md
-    relationship: formalizes
-    author_endorsement: participated
-    note: >-
-      States the distinct orientation-paired operator products producing the
-      joint rho Q bulk scalar and the normalized quartic screen scalar, and
-      marks both proposed physical placements explicitly.
-  - title: The Perron optical flow
-    authors:
-      - Stephanie Alexander
-    type: research note
-    location: PERRON_OPTICAL_RAYCHAUDHURI.md
-    relationship: formalizes
-    author_endorsement: participated
-    note: >-
-      States the explicit affine null-ray family, its transverse separation map,
-      the optical scalar identities, and the conditional horizon energy-area
-      balance.
-  - title: KMS selection of the horizon shear
-    authors:
-      - Stephanie Alexander
-    type: research note
-    location: KMS_OPTICAL_BOUNDARY_SELECTION.md
-    relationship: formalizes
-    author_endorsement: participated
-    note: >-
-      States the response-classification problem and the unique optical flow
-      up to orientation, conditional on the displayed quartic KMS placement.
-  - title: From the local Clausius relation to the Einstein tensor
-    authors:
-      - Stephanie Alexander
-    type: research note
-    location: LOCAL_EINSTEIN_CLOSURE.md
-    relationship: formalizes
-    author_endorsement: participated
-    note: >-
-      States the constructive four-dimensional null-cone rigidity result and
-      its application to the local Einstein-tensor equation.
-
+- title: Constructive Lie generation from an orthogonal adjoint action and a local Hodge operator
+  authors:
+  - Stephanie Alexander
+  type: research note
+  location: LIE_GENERATION.md
+  relationship: formalizes
+  author_endorsement: participated
+  note: Self-contained statement, constructive proof mechanism and bounded literature comparison
+    for the principal generation theorem. Global novelty and publication priority are not established
+    by this note.
+- title: Simple groups stabilizing polynomials
+  authors:
+  - Skip Garibaldi
+  - Robert M. Guralnick
+  type: article
+  location: https://arxiv.org/abs/1309.6611
+  relationship: background
+  author_endorsement: not-contacted
+  note: Representation-theoretic context for irreducible overgroups and invariant tensors. Not
+    claimed to prove the displayed local-Hodge generation theorem.
+- title: Controllability properties for finite dimensional quantum Markovian master equations
+  authors:
+  - Claudio Altafini
+  type: article
+  location: https://arxiv.org/abs/quant-ph/0211194
+  relationship: background
+  author_endorsement: not-contacted
+  note: Context for Lie generation from adjoint controls and an additional superoperator. Its
+    dissipative and control hypotheses are not transferred to this noncompact algebraic model.
+- title: Higgs bundles and exceptional isogenies
+  authors:
+  - Steven B. Bradlow
+  - Laura P. Schaposnik
+  type: article
+  location: https://arxiv.org/abs/1508.02650
+  relationship: background
+  author_endorsement: not-contacted
+  note: Exceptional orthogonal/exterior-power geometry. Not a claimed duplicate or proof of the
+    present fixed four-plane Hodge result.
+- title: 'Physical response: established structure and remaining implications'
+  authors:
+  - Stephanie Alexander
+  type: research note
+  location: PHYSICAL_SCOPE.md
+  relationship: formalizes
+  author_endorsement: participated
+  note: States the exact two-sided trace-preservation criterion, the obstruction to naive Hodge
+    extension, the repaired optical interpretation and the remaining effective-action calculation.
+    The induced-gravity discussion is literature analysis, not a new physical derivation.
+- title: 'Deriving Gravity from First Principles: The Dimensional Origin of Newton''s Constant'
+  authors:
+  - Stephanie Alexander
+  id: DOI:10.5281/zenodo.20417378
+  type: article
+  location: https://doi.org/10.5281/zenodo.20417378
+  relationship: background
+  author_endorsement: participated
+  note: Origin of the PDT proposal and numerical coupling comparison. The generator choice is
+    motivated by this program. The selected theorem proves its specified Lie closure; it does
+    not establish the scalar-response or empirical gravitational identification.
+- title: 'Thermodynamics of Spacetime: The Einstein Equation of State'
+  authors:
+  - Ted Jacobson
+  id: DOI:10.1103/PhysRevLett.75.1260
+  type: article
+  location: https://arxiv.org/abs/gr-qc/9504004
+  relationship: background
+  author_endorsement: not-contacted
+  note: Context for the previously formalized conditional local Clausius-to-Einstein step. The
+    present selected results do not derive the microscopic area-entropy coefficient or the local
+    thermodynamic premise.
+- title: Gravitational algebras and the generalized second law
+  authors:
+  - Thomas Faulkner
+  - Antony J. Speranza
+  type: article
+  location: https://arxiv.org/abs/2405.00847
+  relationship: adapts
+  author_endorsement: not-contacted
+  note: Source for the full nonlinear shear-minus-expansion null-energy density and finite-cut
+    charge, especially equations3.27 and3.31. The companion formalization derives the corresponding
+    scalar interval identity from explicitly assumed optical equations. A physical modular-Hamiltonian
+    identification, gravitational constraints and future stationarity remain additional inputs.
 related_formalizations:
-  - id: PALOMAR-2026-08-19-000007
-    relationship: builds-on
-    note: >-
-      Registered PDT Lean core containing the cubic/quartic kinematic setting.
-      The present entry does not resubmit those registered declarations.
-  - id: PALOMAR-2026-08-31-000004
-    relationship: other
-    note: >-
-      Registered degree-two through degree-four Mahler-measure minima,
-      including the distinguished cubic and quartic polynomials. This is
-      selection context and is not a premise of the compared declarations.
-  - id: PALOMAR-2026-09-01-000005
-    relationship: other
-    note: >-
-      Registered degree-twelve compositum of rho and Q, including its exact
-      algebraic-unit and conjugate data. It supplies lineage for the joint
-      scale; the clock-independence theorem here is self-contained.
-  - id: PALOMAR-2026-09-01-000012
-    relationship: other
-    note: >-
-      Registered golden-family boundary containing the cubic Pisot and
-      quartic non-Pisot classification. This is PDT interpretation context,
-      not a premise of the compared declarations.
-  - id: PALOMAR-2026-09-02-000014
-    relationship: other
-    note: >-
-      Registered trace-form tensor-product results and the signatures of the
-      cubic, quartic, and compositum fields. This is adjacent geometric
-      context; the selected null-cone theorem uses an explicitly defined
-      diagonal Minkowski metric.
-  - id: PALOMAR-2026-08-19-000006
-    relationship: other
-    note: >-
-      Registered Padovan time/chirality result. It is adjacent PDT context but
-      is not a hypothesis of the compared gravity declarations.
-  - id: https://github.com/stalex444/gravity-screening-mechanism/tree/4ad8be8c95f3170d77e4675294df79a5d53a976b
-    relationship: builds-on
-    note: >-
-      Pinned development repository from which the complete transitive Lean
-      dependency closure was extracted. This repository adds the integrated
-      horizon-to-Einstein capstone and a new seven-result comparison surface.
-
+- id: PALOMAR-2026-08-19-000007
+  relationship: builds-on
+  note: Registered PDT Lean core containing the cubic/quartic kinematic setting. The present entry
+    does not resubmit those registered declarations.
+- id: PALOMAR-2026-08-31-000004
+  relationship: other
+  note: Registered degree-two through degree-four Mahler-measure minima, including the distinguished
+    cubic and quartic polynomials. This is selection context and is not a premise of the compared
+    declarations.
+- id: PALOMAR-2026-09-01-000005
+  relationship: other
+  note: Registered degree-twelve compositum of rho and Q, including algebraic-unit and conjugate
+    data. This supplies historical lineage for the joint scale and the older supporting clock-independence
+    theorem, which is not selected in the revised comparison.
+- id: PALOMAR-2026-09-01-000012
+  relationship: other
+  note: Registered golden-family boundary containing the cubic Pisot and quartic non-Pisot classification.
+    This is PDT interpretation context, not a premise of the compared declarations.
+- id: PALOMAR-2026-09-02-000014
+  relationship: other
+  note: Adjacent trace-form and number-field signature context; these results are not hypotheses
+    of the selected Lie-generation theorem.
+- id: PALOMAR-2026-08-19-000006
+  relationship: other
+  note: Registered Padovan time/chirality result. It is adjacent PDT context but is not a hypothesis
+    of the compared gravity declarations.
+- id: https://github.com/stalex444/gravity-screening-mechanism/tree/4ad8be8c95f3170d77e4675294df79a5d53a976b
+  relationship: builds-on
+  note: Pinned source of the original supporting PDT development closure. The present revision
+    adds constructive local-Hodge Lie generation and optical/response corrections; the earlier
+    conditional capstone remains supporting material.
 status:
-  scope: >-
-    The compared declarations prove a conditional mathematical package. An
-    assumed 1/Q exchange-line eigenweight plus symmetry and normalization
-    classify an affine two-channel screen history up to orientation. The
-    explicit screen functions satisfy exact null-ray, optical-scalar,
-    Raychaudhuri-form, flux, and conditional area-balance identities. Given a
-    separate dimensionless local null Clausius contraction in electron-mass
-    natural units with the repository-defined rho Q coupling, null-cone
-    rigidity forces the Einstein-tensor shape. The
-    integrated theorem also includes the exact determinant identity for the
-    exponent-224 block. A separately selected theorem derives
-    224 = dim sl(dim so(4,2)) and its 15 + 209 orbit--stabilizer split. The
-    comparison also includes the separate Hodge-pair products exposing the
-    rho Q bulk scalar and quartic screen scalar, and the irrational
-    modular-clock relation.
-    The cubic root rho (p) enters through every direction of the joint
-    (rho Q)^224 bulk block; Q additionally supplies the proposed two-channel
-    boundary weight and determinant. It does not prove that physical curvature
-    assigns rho and Q to the two Hodge chiralities, that an interacting horizon
-    carries the proposed 1/Q line, derive the initial horizon residual or
-    Clausius premise from quantum fields, prove that the structural dimension
-    224 must be physically assigned as the gravity exponent, construct a global nonlinear spacetime, prove the
-    differential Bianchi identity, or validate the coupling against experiment.
-    The physical proposal identifies the defined scalar with
-    alpha_G = G_N m_e^2/(hbar c); dimensional G_N is recovered only after
-    restoring that normalization.
+  scope: The selected mathematical response algebra is generated by explicitly specified operators;
+    its dimension224 is a conclusion. The field hypothesis is only2!=0, including odd positive
+    characteristics. The local Hodge operator squares to minus its rank-six projector, not minus
+    the identity on all fifteen coordinates. The optical companion uses actual coordinate derivatives
+    and retains finite endpoint charges. The two-sided response criterion is valid over any commutative
+    ring with a finite nonempty index set. These results do not determine the physical operator
+    selection, an extension of the original complex2D Hodge divide, the response magnitude, a
+    quantum state, a microscopic entropy coefficient or Newton's constant. Existing doubled quadratic
+    action and fixed-mode Gaussian results remain supporting development; a metric-dependent effective-action/stress-correlation
+    calculation is still required for an induced-gravity interpretation. To identify an arbitrary
+    physical response algebra with this least generated space, minimality or trace-free containment
+    is an additional requirement; generator inclusion alone also permits larger algebras.
   sorry_count: 0
   sorry_in_definitions: 0
-  axioms:
-    - propext
-    - Classical.choice
-    - Quot.sound
+  axioms: &id001
+  - propext
+  - Classical.choice
+  - Quot.sound
   main_results:
-    - declaration: HorizonEinsteinClosure.gravityExponentFromConformalResponseSpace
-      file: Solution.lean
-      sorry_count: 0
-      axioms: [propext, Classical.choice, Quot.sound]
-      comparator_config: comparator.json
-    - declaration: HorizonEinsteinClosure.horizonEinsteinClosure
-      file: Solution.lean
-      sorry_count: 0
-      axioms: [propext, Classical.choice, Quot.sound]
-      comparator_config: comparator.json
-      literature_dependencies:
-        - statement: A local horizon Clausius relation yields a null-contracted Ricci-versus-stress relation.
-          source: "Thermodynamics of Spacetime: The Einstein Equation of State"
-        - statement: Horizon gravitational null energy contains a quadratic shear term and horizon-cut area is related to a one-sided modular Hamiltonian.
-          source: Gravitational algebras and the generalized second law
-    - declaration: HorizonEinsteinClosure.hodgeBulkAndQuarticScreen
-      file: Solution.lean
-      sorry_count: 0
-      axioms: [propext, Classical.choice, Quot.sound]
-      comparator_config: comparator.json
-    - declaration: HorizonEinsteinClosure.kmsBoundarySelectsOpticalFlow
-      file: Solution.lean
-      sorry_count: 0
-      axioms: [propext, Classical.choice, Quot.sound]
-      comparator_config: comparator.json
-    - declaration: HorizonEinsteinClosure.quarticNullCongruenceRaychaudhuri
-      file: Solution.lean
-      sorry_count: 0
-      axioms: [propext, Classical.choice, Quot.sound]
-      comparator_config: comparator.json
-      literature_dependencies:
-        - statement: The horizon gravitational null-energy response is quadratic in perturbative shear around a Killing horizon.
-          source: Gravitational algebras and the generalized second law
-    - declaration: HorizonEinsteinClosure.nullConeRigidity4
-      file: Solution.lean
-      sorry_count: 0
-      axioms: [propext, Classical.choice, Quot.sound]
-      comparator_config: comparator.json
-    - declaration: HorizonEinsteinClosure.nullClausiusForcesLocalEinsteinShape
-      file: Solution.lean
-      sorry_count: 0
-      axioms: [propext, Classical.choice, Quot.sound]
-      comparator_config: comparator.json
-      literature_dependencies:
-        - statement: The local thermodynamic derivation requires the null-contracted tensor relation for every local null generator.
-          source: "Thermodynamics of Spacetime: The Einstein Equation of State"
-
+  - declaration: HorizonEinsteinClosure.geometricHodgeGeneration
+    file: Solution.lean
+    sorry_count: 0
+    axioms: *id001
+    comparator_config: comparator.json
+  - declaration: HorizonEinsteinClosure.orthogonalNullFamily
+    file: Solution.lean
+    sorry_count: 0
+    axioms: *id001
+    comparator_config: comparator.json
+  - declaration: HorizonEinsteinClosure.finiteCutOpticalBalance
+    file: Solution.lean
+    sorry_count: 0
+    axioms: *id001
+    comparator_config: comparator.json
+  - declaration: HorizonEinsteinClosure.twoSidedTraceFreePreservation
+    file: Solution.lean
+    sorry_count: 0
+    axioms: *id001
+    comparator_config: comparator.json
 automation:
   methods:
-    - method: agent
-      models:
-        - OpenAI GPT-family; exact model revision not recorded
-      framework: Codex
-      tool_setup: >-
-        Human-directed theorem design, Lean compiler iteration, dependency
-        extraction, and Palomar packaging. Lean 4.31.0 and Mathlib commit
-        fabf563a7c95a166b8d7b6efca11c8b4dc9d911f were pinned. Challenge
-        imports only Mathlib. Solution reconstructs the compared declarations
-        from independently compiled source modules and direct kernel proofs.
-      cost:
-        wall_time: Sessions through 2026-09-09; cumulative elapsed effort not tracked
-        spend_usd: not tracked
-        hardware: local machine
-      prompting_notes: >-
-        Stephanie Alexander supplied the PDT research program, required the
-        defined rho Q coupling and conditional horizon mechanism to remain
-        visible, and
-        directed preparation of a focused public repository. The comparison
-        surface was designed to avoid presenting isolated algebraic
-        corollaries as the main result: one capstone states an integrated
-        conditional package with separate optical/horizon and
-        Clausius-to-Einstein branches, with six independently compared
-        support theorems, including the structural exponent theorem. Physical assumptions are named in the theorem
-        hypotheses.
+  - method: agent
+    models:
+    - OpenAI GPT-family; exact model revision not recorded
+    framework: Codex
+    tool_setup: Human-directed theorem selection, exact integer exploration, Lean4.31.0 kernel
+      proofs, geometric identification, independent mathematical/physics audits and primary-literature
+      scouting. Mathlib is pinned in lake-manifest.json. The finite certificate uses ordinary
+      matrix-unit simplification and kernel evaluation, without native_decide.
+    cost:
+      wall_time: Sessions through2026-09-10; cumulative elapsed effort not tracked
+      spend_usd: not tracked
+      hardware: local machine
+    prompting_notes: Stephanie Alexander directed substantive strengthening of the PDT gravity
+      work and requested an agent team. The team investigated generator-defined Lie closure, repaired
+      optical geometry and response-preservation conditions, and tested the proposed physical
+      links against primary literature. The selected result set now leads with the explicit Lie-generation
+      theorem. Physical gaps and conditional hypotheses remain visible.
   spend_usd: not tracked
-  notes: >-
-    Kernel verification establishes the formal implications. It is not
-    independent peer review and does not validate the physical KMS placement
-    or the empirical value of the coupling.
-
+  notes: AI assistance and kernel verification are disclosed. They do not constitute human peer
+    review, independent experimental validation or a priority determination.
 fidelity:
-  divergences: >-
-    Jacobson's differential-geometric and quantum-field argument is represented
-    by its local null-contraction premise followed by a fully formalized
-    finite-dimensional tensor closure. Its variables are unit-free real
-    matrices; the physical reading uses electron-mass natural units so the
-    Einstein coefficient is 8 pi alpha_G, where
-    alpha_G = G_N m_e^2/(hbar c). With
-    ell_e = hbar/(m_e c), curvature is scaled by ell_e^2, stress by the
-    electron rest-energy density m_e c^2/ell_e^3, area by ell_e^2, and the
-    cosmological term by ell_e^2. Undoing those normalizations gives the usual
-    coefficient 8 pi G_N/c^4. Faulkner-Speranza's interacting
-    horizon algebra is represented by an explicit two-channel affine optical
-    model and a scalar horizon residual. The Hodge divide is an exact
-    finite-dimensional model of the proposed chiral assignment, not a
-    derivation of that assignment from physical curvature. The deposited PDT gravity paper
-    supplies the rho Q coupling proposal, the physical selection of exponent 224, and
-    the quartic screening formula. The identification of 1/Q with a physical
-    horizon KMS/core line is a later premise developed in this repository and
-    its accompanying note. This artifact formalizes the Lie-theoretic chain
-    `dim so(4,2)=15`, `dim sl(15)=224=15+209`; it does not prove the physical
-    identification of that dimension as gravity's exponent. The Jacobson, Faulkner-Speranza, and
-    Witten sources do not contain the PDT assignments. No global
-    curved-spacetime equivalence is claimed.
-
+  divergences: The principal statement uses fixed integral coordinates for an orthogonal adjoint
+    representation and a chosen local Hodge operator, extended to arbitrary fields with2!=0. It
+    does not claim all signatures, all four-planes, or a classification of every possible response
+    algebra. An exact certificate is used to prove the closure; a general Lie-theoretic classification
+    is not imported. The optical theorems are flat-coordinate geometry and real-analysis consequences
+    of stated optical equations, not a global Lorentzian manifold or interacting quantum-horizon
+    construction. The two-sided trace-preservation theorem constrains possible response laws but
+    does not assert that the physical law is two-sided. The original2D Hodge divide and the separately
+    defined scalar224D block are distinguished explicitly. The intended research-interest case
+    concerns constructive/formalized representation theory; global novelty remains unestablished.
 review:
   status: self-assessed
   reviewers: []
-  notes: >-
-    The recovered source was audited on 2026-09-09. Metadata and theorem
-    names were synchronized with the conformal response-space formulation.
-    The Solution source has
-    no sorry, admit, or added axiom. The Challenge/Solution types are selected
-    by comparator.json. Literature attribution distinguishes the standard
-    horizon and null-cone framework from the PDT-specific placement.
-    Two independent AI review passes examined theoretical-physics scope and
-    Palomar statement alignment; their findings and documentation corrections
-    are recorded in PRE_SUBMISSION_REVIEW.md. This was not human peer review
-    or official Palomar verification.
-    A subsequent rendering compatibility redraft factors each original
-    quantified statement into a fixed named proposition. Comparator's
-    definition_names remains empty, so the proposition bodies are ordinary
-    checked dependencies. Exact full-statement copies are included in the
-    theorem documentation for Palomar's partial declaration view and checked
-    by scripts/check_render_statements.py. The original proof types are
-    preserved; see RENDER_COMPATIBILITY.md for validation and limitations.
-
+  notes: Separate AI agents investigated exact finite identities, optical geometry and physics
+    scope, and primary-literature connections. The coordinator integrated the general field proof
+    and selected statements. The earlier dated PRE_SUBMISSION_REVIEW.md describes a historical
+    snapshot, not an independent review of this revision. Current local proof and presentation
+    checks must apply to the submitted commit; Palomar mechanical and editorial review are separate.
+    No acceptance or human peer-review claim is made.
 alignment:
   namespace: HorizonEinsteinClosure
   statements:
-    - source: Structural conformal orbit--stabilizer exponent
-      lean: HorizonEinsteinClosure.gravityExponentFromConformalResponseSpace
-      module: Solution
-      status: proved
-      note: >-
-        Proves the actual Mathlib Lie algebra so'(4,2) has dimension 15,
-        evaluation of trace-free real endomorphisms at any nonzero conformal
-        generator is surjective, its kernel has dimension 209, and
-        rank--nullity yields 224 = 15 + 209. The response exponent is defined
-        as the dimension of this endomorphism space; the theorem computes it
-        as 224 and proves the scalar determinant is scale^224. The final physical assignment
-        of this dimension as gravity's exponent remains the PDT identification.
-    - source: Integrated horizon-to-Einstein closure
-      lean: HorizonEinsteinClosure.horizonEinsteinClosure
-      module: Solution
-      status: proved
-      note: >-
-        One declaration explicitly states the KMS/core boundary assumptions,
-        affine optical classification, positive-branch null-ray realization,
-        Raychaudhuri-form identity, shear-flux/area identity, conditional
-        horizon balance, irrational rho Q clocks, local Einstein equation, and
-        determinant identity for the defined exponent-224 block. The cubic
-        root rho (p) enters the joint bulk determinant and the exact
-        orientation-paired Hodge divide; Q enters that joint product and the
-        separate normalized screen response. The horizon balance and Einstein
-        coefficient use the same defined dimensionless alphaG_PDT. This means
-        the theorem uses the same scalar in its two displayed premises; it
-        does not prove that those premises are jointly realized physically.
-    - source: Hodge bulk and quartic screen products
-      lean: HorizonEinsteinClosure.hodgeBulkAndQuarticScreen
-      module: Solution
-      status: proved
-      note: >-
-        For arbitrary real rho and nonzero q, states two distinct operator
-        identities: pairing the two weighted orientations gives (rho q)I,
-        and the normalized response and its flip give ((2q-1)/q^2)I. The
-        integrated capstone specializes rho and q to the positive cubic and
-        quartic roots. The theorem does not identify the two operators or
-        infer their physical placement from the algebra.
-    - source: Quartic KMS boundary classification
-      lean: HorizonEinsteinClosure.kmsBoundarySelectsOpticalFlow
-      module: Solution
-      status: proved
-      note: >-
-        For an arbitrary two-by-two response satisfying the stated symmetry,
-        normalization, and core-line conditions, the whole affine flow is
-        forced up to orientation; both branches have the same determinant,
-        quadratic flux, area loss, and defined conditional horizon update.
-    - source: Explicit null-ray family and Raychaudhuri-form identity
-      lean: HorizonEinsteinClosure.quarticNullCongruenceRaychaudhuri
-      module: Solution
-      status: proved
-      note: >-
-        Constructs null tangents and the exact transverse separation map, then
-        proves the derivative and scalar identity having the vacuum
-        Raychaudhuri form throughout the nonsingular unit interval.
-    - source: Four-dimensional null-cone rigidity
-      lean: HorizonEinsteinClosure.nullConeRigidity4
-      module: Solution
-      status: proved
-      note: >-
-        A symmetric form vanishing quadratically on every Minkowski-null
-        vector is a scalar metric multiple. The source proof uses explicit
-        rational null probes rather than importing a classification theorem.
-    - source: Null Clausius to Einstein tensor
-      lean: HorizonEinsteinClosure.nullClausiusForcesLocalEinsteinShape
-      module: Solution
-      status: proved
-      note: >-
-        Applies null-cone rigidity to Ricci minus kappa times stress and
-        produces the local Einstein-tensor equation with one cosmological
-        scalar.
-
-acknowledgements: >-
-  Lean and Mathlib contributors; the authors of the cited horizon,
-  thermodynamic-gravity, and operator-algebra literature; and the Palomar
-  Registry maintainers.
+  - source: Geometric local-Hodge Lie generation
+    lean: HorizonEinsteinClosure.geometricHodgeGeneration
+    module: Solution
+    status: proved
+    note: Explicit six-dimensional brackets and local Hodge complement generate sl15 over every
+      field with two nonzero; dimension224 follows.
+  - source: Orthogonal affine null realization
+    lean: HorizonEinsteinClosure.orthogonalNullFamily
+    module: Solution
+    status: proved
+    note: Actual affine and screen-label derivatives are verified; the induced screen pairing
+      is positive under nonsingularity.
+  - source: Finite-cut optical energy balance
+    lean: HorizonEinsteinClosure.finiteCutOpticalBalance
+    module: Solution
+    status: proved
+    note: The full evolving shear-minus-expansion density integrates to the difference of finite
+      endpoint charges.
+  - source: Two-sided trace-free preservation
+    lean: HorizonEinsteinClosure.twoSidedTraceFreePreservation
+    module: Solution
+    status: proved
+    note: For finite nonempty matrices over a commutative ring, trace-zero preservation is equivalent
+      to the reversed factor product being scalar.
+acknowledgements: Lean and Mathlib contributors; the authors of the cited horizon, thermodynamic-gravity,
+  and operator-algebra literature; and the Palomar Registry maintainers.

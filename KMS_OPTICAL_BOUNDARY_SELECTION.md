@@ -1,5 +1,8 @@
 # KMS selection of the horizon shear
 
+> Historical development note. The current selected statements and revised
+> interpretation are documented in README.md, PROOF_MAP.md and PHYSICAL_SCOPE.md.
+
 ## Result
 
 The previous optical construction showed that the quartic response

@@ -1,61 +1,24 @@
-# Palomar rendering compatibility
+# Complete statements in the reviewer view
 
-This presentation addresses [PalomarSubmission issue #134](https://github.com/PalomarRegistry/PalomarSubmission/issues/134).
-The preceding submitted snapshot is `78e4b92b0cb28efc8ba13afce77fee8b8a6e15b2`.
-Its [official mechanical verification passed](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34402569586),
-but its [rendering failed](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34405203359).
+The comparison uses the presentation developed for
+[PalomarSubmission issue134](https://github.com/PalomarRegistry/PalomarSubmission/issues/134).
+For every selected result, Challenge and Solution define an ordinary
+`<theoremName>Statement : Prop` containing the complete quantified claim.
+The theorem proves that proposition. These are fixed definitions, never
+Comparator definition holes: `definition_names` remains empty.
 
-## Presentation change
+Palomar's partial declaration view shows a theorem and its immediately
+preceding documentation. Each documentation block therefore repeats the
+complete proposition definition verbatim. The script
+`scripts/check_render_statements.py` checks agreement between the displayed
+copy, compiled definition and corresponding Challenge/Solution definition.
+The geometric/operator definitions are ordinary checked dependencies.
 
-For each of the seven existing theorem names, `Challenge.lean` and
-`Solution.lean` define a proposition named `<theoremName>Statement`. Its body
-contains the theorem's complete original quantifiers, hypotheses, and
-conclusion. The theorem then proves that proposition. The Solution proof
-introduces the same variables and hypotheses and uses the original proof body.
-
-These proposition definitions are ordinary, fixed dependencies. They have no
-placeholders and are deliberately absent from `definition_names`, which stays
-empty. The pinned Comparator follows their bodies through its ordinary
-declaration-closure comparison. Adding them to `definition_names` would instead
-make them replaceable holes and is not part of this workaround.
-
-Palomar's core-notation audit can print the theorem's type without trying to
-reconstruct the internal Mathlib type hierarchy that triggers issue #134.
-The full proposition also appears verbatim in the theorem's documentation,
-because Palomar's partial declaration view omits ordinary dependency
-definitions. `scripts/check_render_statements.py` verifies that these displayed
-copies are identical to the compiled definitions in both Lean files.
-
-All 80 supporting Lean modules are unchanged. The exponent remains defined
-as the dimension of the trace-free response space and derived as 224. The
-conditional physical assumptions and all seven conclusions are preserved.
-
-## Verification
-
-The local validation package contains:
-
-- A successful Lean 4.31.0 project build and standard-axiom reports.
-- Seven kernel-checked `HEq` certificates between the original and redrafted
-  theorem proofs, using an independently namespaced copy of the original
-  Solution. These establish that the old and new proof types are definitionally
-  equal, allowing Lean's standard proof irrelevance.
-- The exact unmodified `core_notation_audit.lean` from Palomar renderer revision
-  `ef2fa1eadcb246c2346ddba39b52eaa53d4bb763`, applied to all seven selected
-  declarations.
-- A local rendering build with the pinned Verso revision
-  `b677415e8a0becccc0b850137c2d8f6205132a91`, and checks of the complete statements
-  in the selected reviewer view.
-- Comparator declaration-closure and axiom checks using its pinned revision
-  `575674928e239f5bc452aab72d1dd7b0f1326494`, including negative controls that
-  replace each proposition body with `True` and must be rejected.
-
-This is a local compatibility validation. A changed commit still requires
-Palomar's own mechanical verification, Linux sandbox, NanoDa check, rendering,
-and editorial review. The earlier official pass applies to the earlier commit.
-Local success does not establish registration, acceptance, or empirical
-validation of the proposed physics.
-
-Routine checks from the repository root:
+This revision changes the mathematics and selected result set. It does not
+claim equivalence to the previous seven theorem types. Earlier verification
+receipts apply only to their original commits. The new source requires fresh
+Lean, declaration-closure, axiom and renderer checks, followed by Palomar's
+own mechanical and editorial review.
 
 ```sh
 lake build

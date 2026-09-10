@@ -1,5 +1,8 @@
 # From the local Clausius relation to the Einstein tensor
 
+> Historical development note. The current selected statements and revised
+> interpretation are documented in README.md, PROOF_MAP.md and PHYSICAL_SCOPE.md.
+
 ## Result
 
 The gravity package previously contained a formalized Pauli--Fierz response

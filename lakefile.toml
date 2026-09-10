@@ -18,3 +18,12 @@ name = "Challenge"
 
 [[lean_lib]]
 name = "Solution"
+
+[[lean_lib]]
+name = "ResponseClosureCertificate"
+
+[[lean_lib]]
+name = "ResponseClosureGeometry"
+
+[[lean_lib]]
+name = "ResponseClosureOrthogonalBasis"

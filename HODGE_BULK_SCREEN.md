@@ -1,5 +1,8 @@
 # The Hodge bulk and screen products
 
+> Historical development note. The current selected statements and revised
+> interpretation are documented in README.md, PROOF_MAP.md and PHYSICAL_SCOPE.md.
+
 ## Result
 
 On one complexified Lorentzian Hodge pair, let `C = -i star` be the

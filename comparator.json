@@ -2,13 +2,10 @@
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": [
-    "HorizonEinsteinClosure.gravityExponentFromConformalResponseSpace",
-    "HorizonEinsteinClosure.horizonEinsteinClosure",
-    "HorizonEinsteinClosure.hodgeBulkAndQuarticScreen",
-    "HorizonEinsteinClosure.kmsBoundarySelectsOpticalFlow",
-    "HorizonEinsteinClosure.quarticNullCongruenceRaychaudhuri",
-    "HorizonEinsteinClosure.nullConeRigidity4",
-    "HorizonEinsteinClosure.nullClausiusForcesLocalEinsteinShape"
+    "HorizonEinsteinClosure.geometricHodgeGeneration",
+    "HorizonEinsteinClosure.orthogonalNullFamily",
+    "HorizonEinsteinClosure.finiteCutOpticalBalance",
+    "HorizonEinsteinClosure.twoSidedTraceFreePreservation"
   ],
   "definition_names": [],
   "permitted_axioms": [

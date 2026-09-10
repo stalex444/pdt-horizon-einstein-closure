@@ -1,0 +1,138 @@
+# Constructive Lie generation from an orthogonal adjoint action and a local Hodge operator
+
+The generation theorem and its field-uniform dimension conclusion are proved in Lean. The full project and submission presentation undergo separate validation.
+
+## Statement
+
+Let `K` be a field with `2 ≠ 0`, and equip `K^6` with the fixed diagonal
+bilinear form
+
+```text
+eta = diag(1,1,1,-1,1,-1).
+```
+
+For `a < b`, put `L_ab = eta_b E_ab - eta_a E_ba`. These fifteen
+orthogonal generators are indexed in lexicographic order. Let `A_p` be the
+matrix of `X ↦ [L_p,X]` in these coordinates.
+
+Choose the oriented coordinate four-plane `0123`. Define `H` on its six
+bivectors by the metric-and-orientation complementary-bivector formula,
+and extend it by zero on the other nine coordinates:
+
+```text
+H(L01) =  L23,    H(L23) = -L01,
+H(L02) = -L13,    H(L13) =  L02,
+H(L03) = -L12,    H(L12) =  L03.
+```
+
+The principal result is
+
+```text
+Lie_K({A_p : p in the fifteen basis pairs} union {H}) = sl(15,K).
+```
+
+Here `Lie_K` is the least subspace containing the displayed operators and
+closed under commutators. Its dimension is consequently `15^2 - 1 = 224`.
+Neither the dimension nor the full trace-free space is an assumption on the
+generated side of the equality. The fixed quadratic form, four-plane,
+orientation, generator inclusion and closure operation are part of the data.
+
+## Proof mechanism
+
+Let `q_p = eta_a eta_b` for the pair `p=(a,b)`. Write
+
+```text
+K_ij = q_j E_ij - q_i E_ji,
+S_ij = q_j E_ij + q_i E_ji.
+```
+
+Fifteen auxiliary integral operators `J_p` organize the calculation. They
+are derived operators, rather than additional generators. The finite
+certificate proves `H = -J_14` and gives fourteen signed adjoint-bracket
+recipes producing every other `J_p` in at most two steps. It then proves
+
+```text
+K_ij = -[J_i,J_j] - [A_i,A_j],
+S_3,9 = [K_3,0,H].
+```
+
+Thus the generated algebra contains every signed skew direction and one
+symmetric off-diagonal direction. For pairwise distinct indices, the
+general matrix identities
+
+```text
+[S_ab,K_bc] = q_b S_ac,
+[S_ab,K_ac] = q_a S_bc
+```
+
+produce all the remaining symmetric off-diagonal directions. Since each
+`q_i` is nonzero and two is invertible,
+
+```text
+E_ij = (S_ij + K_ij)/(2 q_j),       i != j.
+```
+
+Their brackets give `E_ii-E_jj`. Off-diagonal units and diagonal differences
+span every trace-free matrix. Conversely, each original operator has zero
+trace, and trace vanishes on every commutator. This proves both inclusions.
+
+The general propagation and spanning proof works for arbitrary finite
+matrix index types with a pair of distinct indices. The finite integral
+identities specialize the mechanism to the specified six-dimensional
+orthogonal representation. Scalar extension carries those integer identities
+to every field where two is nonzero, including odd positive characteristics.
+No assumption that the characteristic does not divide fifteen is needed.
+
+## What this contributes
+
+Computing the dimension of all trace-free endomorphisms does not answer the
+generation question above. Nor does showing irreducibility or full
+associative generation: the adjoint action alone can have full associative
+envelope while retaining a fifteen-dimensional Lie closure.
+
+There is also a concrete proper-overgroup comparison over the complex
+numbers. The exterior-square action of `sl6` on `Lambda^2 C6` extends the
+adjoint `so6` action but has dimension only 35. Some of these additional
+operators break the induced quadratic form. Consequently, irreducibility
+and breaking that form do not by themselves imply full `sl15` generation.
+The local Hodge operator changes both indices of a bivector to the disjoint
+complement; it is outside this natural exterior-square `sl6` action. The
+explicit commutator proof determines the full closure without relying on a
+classification of all possible intermediate algebras.
+
+The intended mathematical audience is explicit Lie theory and formalized
+representation theory. The reusable propagation lemma, transparent integral
+identities and uniform field statement provide the proposed contribution.
+Whether this particular application merits a research note is an editorial
+judgment. No exhaustive priority claim or human peer review is asserted.
+
+Relevant primary literature includes the distinction between associative
+density and Lie generation in [Altafini's control analysis](https://arxiv.org/abs/quant-ph/0211194),
+the proper-overgroup setting in [Garibaldi and Guralnick](https://arxiv.org/abs/1309.6611),
+and the exceptional orthogonal/exterior-power geometry discussed by
+[Bradlow and Schaposnik](https://arxiv.org/abs/1508.02650).
+These sources provide context; none is claimed here to prove the displayed
+local-Hodge generation theorem.
+
+## Relation to the PDT gravity proposal
+
+The theorem supplies a mathematical reason for 224 in the least Lie algebra
+generated by the displayed operators. To infer that an arbitrary physical
+response algebra is exactly this space, one must also justify minimality or
+a trace-free upper bound. Inclusion and commutator closure alone imply that
+it contains `sl15`; they also allow `gl15` and do not force dimension 224. It does not establish that physical
+responses obey them, or that their minimal closure is the only permissible
+physical model.
+
+An additional scalar response `(rho Q) I` on that 224-dimensional algebra
+has determinant `(rho Q)^224`. The generation theorem does not select this
+scalar operator, its magnitude, or an entropy coefficient. The quartic
+screening placement, the local Clausius premise, and identification with
+Newton's constant remain separate physical questions. A finite response
+determinant is not automatically the curvature coefficient of a quantum
+effective action.
+
+Over the reals, `H^2` is minus the projector onto the six local bivectors.
+It is not minus the identity on all fifteen coordinates, and this chosen
+four-plane operator does not commute with the full conformal adjoint action.
+Those distinctions are essential to both the proof and its interpretation.

@@ -1,5 +1,8 @@
 # Pre-submission AI review — 9 September 2026
 
+> Historical development note. The current selected statements and revised
+> interpretation are documented in README.md, PROOF_MAP.md and PHYSICAL_SCOPE.md.
+
 Two separate AI agents reviewed snapshot
 `08891b8e2085baafe29a88cca34d5358ed010327`: one examined theoretical-physics
 interpretation and one examined Palomar statement alignment and submission
