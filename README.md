@@ -13,6 +13,14 @@ orthogonal-generator commutators. The generated algebra is defined as the
 least subspace containing these operators and closed under commutators.
 The full trace-free space is the conclusion of the generation theorem.
 
+The same principal theorem now proves response rigidity. A linear response
+on this 224-dimensional algebra that commutes with the commutator action of
+each of the sixteen generators must be `c I`, with determinant `c^224`.
+The proof uses matrix units directly and works in every characteristic
+except two, including characteristics three and five where `sl15` is not
+simple. A supporting theorem shows that one nonzero-mode calibration fixes
+c. See [RESPONSE_UNIQUENESS.md](RESPONSE_UNIQUENESS.md).
+
 The mathematical proof and its relation to known representation theory are
 in [LIE_GENERATION.md](LIE_GENERATION.md). Its proposed contribution is an
 explicit integral generation mechanism, a reusable matrix-unit propagation
@@ -25,7 +33,7 @@ The Palomar comparison selects four results:
 
 | Declaration in `HorizonEinsteinClosure` | Scope |
 |---|---|
-| `geometricHodgeGeneration` | The geometrically specified adjoint/Hodge Lie closure equals `sl(15,K)` and has dimension 224, for every field with `2 ≠ 0`. This is the principal result. |
+| `geometricHodgeGeneration` | The geometrically specified adjoint/Hodge Lie closure equals `sl(15,K)`, has dimension 224, and forces every generator-covariant linear response on that algebra to be scalar with determinant `c^224`. The only field restriction is `2 ≠ 0`. |
 | `orthogonalNullFamily` | An explicit quadratic initial cut gives an affine null family whose actual screen derivatives are orthogonal to the null tangent; its induced screen pairing is positive before degeneracy. |
 | `finiteCutOpticalBalance` | Area evolution and the stated optical equation imply an exact interval energy balance with both endpoint expansion terms retained. |
 | `twoSidedTraceFreePreservation` | The map `T ↦ DTE` preserves trace-free matrices exactly when `ED` is scalar. |
@@ -42,15 +50,26 @@ cubic/quartic parameters `rho^3=rho+1`, `Q^4=Q+1`. This revision establishes
 what the specified operator closure forces mathematically. Physical selection
 of those operators remains a premise. Identifying the physical algebra with
 this least generated algebra, or imposing trace-free containment, is also
-necessary to infer that its dimension is exactly224: generator inclusion
+necessary to infer that its dimension is exactly 224: generator inclusion
 and commutator closure alone also allow larger algebras such as `gl15`.
 
-The generation theorem does not determine a scalar response on the resulting
-algebra, an absolute horizon-entropy coefficient, or Newton's constant.
+The response-rigidity clause fixes the scalar form under its explicit
+covariance hypotheses. It leaves the value of the scalar unassigned;
+it does not identify an absolute horizon-entropy coefficient or Newton's constant.
 In particular, the original complex two-dimensional Hodge divide does not
 automatically extend to a response on all fifteen generator directions.
 The new two-sided preservation theorem states the exact condition that any
 such construction must meet. See [PHYSICAL_SCOPE.md](PHYSICAL_SCOPE.md).
+
+The broader PDT development already contains a proposed G-free coupling
+formula using the electron mass as its dimensional anchor, together with
+constitutive, source-frame and spin-two uniqueness results. The limits of
+this generation theorem do not negate those results. The physical-scope
+note records their contribution and the precise need to compose results
+on the same response space.
+The existing formula is evaluated with current CODATA inputs in
+[NEWTON_EXPRESSION.md](NEWTON_EXPRESSION.md), including its signed deviation
+and the reference uncertainty.
 
 The optical repair uses the full evolving shear-minus-expansion density.
 Its finite-cut charge is `A(u)-u A(u) theta(u)`. A physical modular-energy

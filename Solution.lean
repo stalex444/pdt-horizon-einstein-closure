@@ -1,5 +1,6 @@
 import Mathlib
 import GravityScreening.HodgeLieGeneration
+import GravityScreening.GeometricResponseRigidity
 import ResponseClosureGeometry
 import GravityScreening.PdtOpticalRepair
 import GravityScreening.TwoSidedTraceFree
@@ -11,13 +12,15 @@ The principal theorem starts from fifteen actual adjoint matrices of the
 six-dimensional orthogonal algebra and one oriented Lorentz Hodge extension.
 The matrices are calculated from the displayed metric, bivector basis, matrix
 commutators, and orientation formula. Their Lie closure is the full trace-free
-response algebra over every field in which two is nonzero.
+response algebra over every field in which two is nonzero. The same result
+forces a generator-covariant response on that algebra to be scalar, with
+determinant c^224 and the scalar value left explicit.
 
 The optical statements separately prove an orthogonal affine null realization
 and a finite-cut integral identity under explicitly stated optical equations.
 The last statement gives the exact preservation condition for a two-sided
-response on trace-free matrices. No gravitational coupling, constitutive law,
-entropy identification, or Einstein equation is inferred here.
+response on trace-free matrices. No physical scalar calibration, gravitational
+coupling, entropy identification, or Einstein equation is inferred here.
 
 For rendering compatibility, each selected theorem proves an ordinary named
 proposition. Its complete definition is copied verbatim into the immediately
@@ -96,6 +99,27 @@ def geometricResponseAlgebra (K : Type) [Field K] :
   LieSubalgebra.lieSpan K (ResponseMatrix K)
     (Set.range (geometricAdjoint K) ∪ {geometricHodge K})
 
+/-- The response acts on the trace-free algebra, of dimension 224. -/
+abbrev ResponseSpace (K : Type) [Field K] :=
+  LieAlgebra.SpecialLinear.sl (Fin 15) K
+
+/-- Commutator action A X - X A on the trace-free response space. -/
+def responseCommutator (K : Type) [Field K] (A : ResponseMatrix K) :
+    ResponseSpace K →ₗ[K] ResponseSpace K where
+  toFun X := ⟨A * X.val - X.val * A, by
+    change (A * X.val - X.val * A).trace = 0
+    rw [Matrix.trace_sub, Matrix.trace_mul_comm]
+    exact sub_self _⟩
+  map_add' X Y := by
+    apply Subtype.ext
+    change A * (X.val + Y.val) - (X.val + Y.val) * A =
+      (A * X.val - X.val * A) + (A * Y.val - Y.val * A)
+    noncomm_ring
+  map_smul' c X := by
+    apply Subtype.ext
+    change A * (c • X.val) - (c • X.val) * A = c • (A * X.val - X.val * A)
+    rw [Matrix.mul_smul, Matrix.smul_mul, smul_sub]
+
 abbrev Screen := Fin 2 → ℝ
 abbrev Spacetime := Fin 4 → ℝ
 
@@ -149,10 +173,38 @@ private theorem geometricResponseAlgebra_eq_generated (K : Type) [Field K] :
           GravityScreening.ResponseClosureCertificate.hodge})
   rw [ha, geometricHodge_eq_cast]
 
+lemma responseCommutator_geometricAdjoint (K : Type) [Field K]
+    (p : Fin 15) (X : ResponseSpace K) :
+    responseCommutator K (geometricAdjoint K p) X =
+      ⁅GravityScreening.HodgeResponseCovariance.adjointGenerator K p, X⁆ := by
+  apply Subtype.ext
+  change geometricAdjoint K p * X.val - X.val * geometricAdjoint K p =
+    (GravityScreening.HodgeResponseCovariance.adjointGenerator K p).val * X.val -
+      X.val * (GravityScreening.HodgeResponseCovariance.adjointGenerator K p).val
+  rw [geometricAdjoint_eq_cast,
+    GravityScreening.HodgeResponseCovariance.coe_adjointGenerator]
+
+lemma responseCommutator_geometricHodge (K : Type) [Field K]
+    (X : ResponseSpace K) :
+    responseCommutator K (geometricHodge K) X =
+      ⁅GravityScreening.HodgeResponseCovariance.hodgeGenerator K, X⁆ := by
+  apply Subtype.ext
+  change geometricHodge K * X.val - X.val * geometricHodge K =
+    (GravityScreening.HodgeResponseCovariance.hodgeGenerator K).val * X.val -
+      X.val * (GravityScreening.HodgeResponseCovariance.hodgeGenerator K).val
+  rw [geometricHodge_eq_cast,
+    GravityScreening.HodgeResponseCovariance.coe_hodgeGenerator]
+
 def geometricHodgeGenerationStatement : Prop :=
   ∀ (K : Type) [Field K], (2 : K) ≠ 0 →
     geometricResponseAlgebra K = LieAlgebra.SpecialLinear.sl (Fin 15) K ∧
-      Module.finrank K (geometricResponseAlgebra K) = 224
+      Module.finrank K (geometricResponseAlgebra K) = 224 ∧
+      ∀ R : ResponseSpace K →ₗ[K] ResponseSpace K,
+        (∀ p X, R (responseCommutator K (geometricAdjoint K p) X) =
+          responseCommutator K (geometricAdjoint K p) (R X)) →
+        (∀ X, R (responseCommutator K (geometricHodge K) X) =
+          responseCommutator K (geometricHodge K) (R X)) →
+        ∃ c : K, R = c • LinearMap.id ∧ LinearMap.det R = c ^ 224
 
 /-- Complete statement proved below. The complete geometric data are as follows. The ambient metric is
 eta = diag(1,1,1,-1,1,-1). The ordered bivector basis is
@@ -170,6 +222,14 @@ containing these fifteen adjoint actions and H and closed under AB-BA.
 The conclusion identifies that generated algebra with all trace-free
 fifteen-by-fifteen matrices; its dimension is a consequence of generation.
 
+The final clause concerns a linear response R on ResponseSpace K = sl(15,K),
+the 224-dimensional algebra itself. Here responseCommutator K A X = A X-X A.
+If R commutes with these commutator actions for each of the sixteen displayed
+generators, R is forced to be scalar and its determinant is c^224 for that
+same scalar c. No simplicity hypothesis or value of c is assumed. This holds
+also in odd characteristics dividing fifteen. Physical calibration of c is
+not a conclusion of the statement.
+
 The displayed definition is an exact copy
 of the fixed proposition immediately above; Comparator checks its full body.
 
@@ -177,14 +237,29 @@ of the fixed proposition immediately above; Comparator checks its full body.
 def geometricHodgeGenerationStatement : Prop :=
   ∀ (K : Type) [Field K], (2 : K) ≠ 0 →
     geometricResponseAlgebra K = LieAlgebra.SpecialLinear.sl (Fin 15) K ∧
-      Module.finrank K (geometricResponseAlgebra K) = 224
+      Module.finrank K (geometricResponseAlgebra K) = 224 ∧
+      ∀ R : ResponseSpace K →ₗ[K] ResponseSpace K,
+        (∀ p X, R (responseCommutator K (geometricAdjoint K p) X) =
+          responseCommutator K (geometricAdjoint K p) (R X)) →
+        (∀ X, R (responseCommutator K (geometricHodge K) X) =
+          responseCommutator K (geometricHodge K) (R X)) →
+        ∃ c : K, R = c • LinearMap.id ∧ LinearMap.det R = c ^ 224
 ```
 -/
 theorem geometricHodgeGeneration : geometricHodgeGenerationStatement := by
   intro K _ htwo
-  rw [geometricResponseAlgebra_eq_generated]
-  exact ⟨GravityScreening.HodgeLieGeneration.generated_eq_sl K htwo,
-    GravityScreening.HodgeLieGeneration.finrank_generated K htwo⟩
+  refine ⟨?_, ?_, ?_⟩
+  · rw [geometricResponseAlgebra_eq_generated]
+    exact GravityScreening.HodgeLieGeneration.generated_eq_sl K htwo
+  · rw [geometricResponseAlgebra_eq_generated]
+    exact GravityScreening.HodgeLieGeneration.finrank_generated K htwo
+  · intro R ha hh
+    apply GravityScreening.GeometricResponseRigidity.geometric_response_scalar_and_determinant
+      K htwo R
+    · intro p X
+      simpa only [responseCommutator_geometricAdjoint] using ha p X
+    · intro X
+      simpa only [responseCommutator_geometricHodge] using hh X
 
 def orthogonalNullFamilyStatement : Prop :=
   ∀ (S : Matrix (Fin 2) (Fin 2) ℝ) (y : Screen) (u : ℝ),

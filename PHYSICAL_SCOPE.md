@@ -10,8 +10,18 @@ For an arbitrary physical response algebra, inclusion of these generators
 and closure under commutators imply containment of `sl15`. Equality and
 dimension 224 additionally require the minimal generated algebra, or a
 trace-free upper bound. The larger algebra `gl15` also contains the generators
-and is closed under commutators. The theorem does not select a state, a
-scalar response magnitude, an entropy density, or a gravitational coupling.
+and is closed under commutators. The added response theorem proves that a
+linear response on this trace-free space is scalar if it commutes with the
+adjoint actions of the same sixteen generators. The scalar form is therefore
+a conclusion under covariance. Its value, a state, an entropy density and
+a gravitational coupling are not selected by that theorem.
+
+One nonzero-mode calibration `R(X0)=(rho Q)X0` then fixes the entire
+224-dimensional response and its determinant to `(rho Q)^224`. This is now
+a supporting Lean theorem. It connects the scalar form to an explicit
+calibration; it does not silently infer physical covariance or that
+calibration from generator inclusion. See
+[RESPONSE_UNIQUENESS.md](RESPONSE_UNIQUENESS.md).
 
 ## An exact condition for extending the divide
 
@@ -63,10 +73,49 @@ There is a broader sufficient construction. For invertible factors with
 conjugation has determinant one on `sl15`, so this map has determinant
 `r^224` without being a scalar map itself. This determinant argument is
 ordinary mathematical reasoning in this note; the selected Lean theorem
-checks the trace-preservation criterion. A physical construction of the
-factors and a derivation of `r=rho Q` remain necessary.
+checks the trace-preservation criterion. An application must identify the
+physical factors and match their product to the PDT calibration `r=rho Q`
+on this response space.
 
 ## Existing action and Gaussian results
+
+The broader PDT proposal already gives a gravity formula with one dimensional
+anchor, the electron mass. With `S_Q=(2Q-1)/Q^2`, it reads
+
+```text
+alpha_G = G m_e^2/(hbar c) = pi^4 / [S_Q (rho Q)^224].
+```
+
+Its exponent is obtained from the proposed algebraic rules; neither 224 nor
+112 needs measured `G` as an input. The corresponding area quantum, in
+`hbar=c=1` units, is `4 pi^4/[S_Q m_e^2 (rho Q)^224]`. The mass exponent
+112 is half the squared-mass exponent 224. These are definite consequences
+within the stated PDT coupling grammar. A separate microscopic entropy
+calculation would test or explain the physical identification further; its
+absence from the selected theorems does not make the existing formula a
+fit to measured `G`. See the
+[deposited Newton manuscript](https://doi.org/10.5281/zenodo.20417378) and its
+[reproducible coupling calculation](https://github.com/stalex444/dimensional-origin-Newton/blob/6277d1b94eda7b19588a0a207baf204f43d00f75/gravity_correction.py).
+
+There is also substantial existing uniqueness work. Exchange symmetry, a
+unit mean stiffness and the Q-clock eigenweight force the constitutive
+matrix. Positivity, the Gram form and preservation of the electric source
+ray fix its canonical frame. Gauge identities and self-adjointness fix the
+parity-even two-derivative spin-two operator up to its overall coefficient.
+The passive rotationally covariant TT response is fixed by its quadratic
+weight, and matching the same normalized physical metric is equivalent to
+`G_Q=G_0/S_Q` under the stated metric normalization. These are conditional
+uniqueness theorems, not merely evaluations of selected matrices. See the
+[existing uniqueness ladder](https://github.com/stalex444/gravity-screening-mechanism/blob/4ad8be8c95f3170d77e4675294df79a5d53a976b/UNIQUENESS_LADDER.md)
+and [TT response theorem](https://github.com/stalex444/gravity-screening-mechanism/blob/4ad8be8c95f3170d77e4675294df79a5d53a976b/GravityScreening/TTResponseUniqueness.lean).
+
+The generation theorem and these uniqueness statements answer different
+questions. To combine them, their state spaces, response operators and
+normalizations must be related explicitly. An adopted physical
+identification is a legitimate model premise; the mathematical consequences
+must then be proved on those same objects. The limitations below concern
+that composition and the scope of the selected statements, rather than an
+assertion that the broader theory has no ruler, scale or uniqueness work.
 
 The supporting source already contains a doubled quadratic action, exact
 first variations, completed-square positivity, partner elimination for an
@@ -82,7 +131,7 @@ The final displayed coupling identity still divides by the independently
 defined `(rho Q)^224` bulk factor. A fixed-mode Gaussian normalization is not
 automatically an absolute physical entropy coefficient or Newton coupling.
 
-## A literature route with explicit requirements
+## An additional microscopic calculation
 
 The Adler–Zee framework relates an induced Newton coefficient to a regulated
 stress-trace correlation function. Casini, Mazzitelli and Testé identify a
@@ -108,9 +157,11 @@ equilibrium argument relates it to `G=1/(4 hbar eta)` in the stated natural
 units. It does not determine the microscopic density itself.
 [Thermodynamics of Spacetime](https://arxiv.org/abs/gr-qc/9504004).
 
-These sources identify a concrete calculation to undertake. They do not
-prove the specific PDT coupling formula, and this bounded search does not
-establish that a dynamical completion is impossible.
+These sources identify a possible additional derivation from microscopic
+dynamics. They do not prove the specific PDT coupling formula and do not
+make that particular derivation a prerequisite for stating PDT with its
+physical foundations. This bounded search does not establish that a
+dynamical completion is impossible.
 
 ## Optical repair and energy interpretation
 
